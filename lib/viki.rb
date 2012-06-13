@@ -1,4 +1,6 @@
-require "viki/version"
+require File.expand_path('../viki/version', __FILE__)
+require File.expand_path('../viki/configuration', __FILE__)
+require File.expand_path('../viki/utils', __FILE__)
 
 # Adapted from the Ruby Twitter gem.
 # @see https://github.com/jnunemaker/twitter
