@@ -1,4 +1,4 @@
-require 'json'
+require 'multi_json'
 
 module Viki
   # @private
@@ -10,7 +10,7 @@ module Viki
       
       # Parses JSON and returns a Hash
       def self.parse_json(json)
-       JSON.parse(json)
+        MultiJson.load(json)
       end
   end
 end

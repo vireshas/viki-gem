@@ -1,3 +1,4 @@
+require 'httparty'
 # Adapted from the Ruby Twitter gem.
 # @see https://github.com/jnunemaker/twitter
 module Viki
@@ -26,6 +27,19 @@ module Viki
     def self.extended(base)
       base.reset
     end
+
+    def auth_request(client_id, client_secret)
+      params = {
+        :grant_type => 'client_credentials',
+        :client_id => client_id,
+        :client_secret => client_secret
+      }
+      response = HTTParty.post('http://vikiping.com/oauth/token', query: params).body
+      json = Utils.parse_json(response)
+      json["access_token"]
+      #HTTParty.post('http://www.vikiping.com/oauth/token', query: { grant_type : 'client_credentials', client_id : 'dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652', client_secret : '4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e' })
+    end
+
 
     def configure(client_id, client_secret)
       self.client_id = client_id
