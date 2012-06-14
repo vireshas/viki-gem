@@ -1,23 +1,68 @@
 require 'spec_helper'
 
 describe "Viki" do
-  describe "#auth_request" do
+  let(:client_id) { '4bd5edd4ba26ac2f3ad9d204dc6359ea8a3ebe2c95b6bc1a9195c0ce5c57d392' }
+  let(:client_secret) { 'f3b796a1eb6e06458a502a89171a494a9160775ed4f4e9e0008c638f7e7e7d38' }
 
+  describe "Auth" do
     it "should retrieve an access token when the Viki object is configured and initialized" do
       VCR.use_cassette "auth" do
-        client_id = 'dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652'
-        client_secret = '4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e'
-        client = Viki::Client.new(client_id, client_secret)
-        client.access_token.should == '798f57820d04a6e1368b82cf9f97f3c0ab376d7686723420eacc133efdd8b2ff'
+        client = Viki.new(client_id, client_secret)
+        client.access_token.should == '1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70'
       end
     end
 
     it "should return an error when the client_secret or client_id is incorrect" do
       VCR.use_cassette "auth_error" do
-        client_id = '12345'
-        client_secret = '54321'
-        lambda { Viki::Client.new(client_id, client_secret) }.should raise_error(Viki::Error,
-                                                                                 "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.")
+        lambda { Viki.new('12345', '54321') }.should raise_error(Viki::Error,
+                                                                 "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.")
+      end
+    end
+  end
+
+  describe "API Interactions" do
+    let(:client) do
+      VCR.use_cassette "auth" do
+        Viki.new(client_id, client_secret)
+      end
+    end
+
+    describe "Movies" do
+
+      context "/movies" do
+        it "should return a list Viki::Movie objects" do
+          VCR.use_cassette "movies_list" do
+            movies = client.movies
+            movies.each do |movie|
+              movie.should be_instance_of(Viki::Movie)
+            end
+          end
+        end
+      end
+
+      context "/movies/:id" do
+        it "should return a Viki::Movie object" do
+          VCR.use_cassette "movie_show" do
+            movie = client.movies(70436)
+
+            movie.id.should == 70436
+            movie.title.should == "Muoi: The Legend of a Portrait"
+            movie.description.should_not be_empty
+            movie.created_at.should_not be_empty
+            movie.uri.should_not be_empty
+            movie.origin_country.should_not be_empty
+            movie.image.should_not be_empty
+            movie.formats.should_not be_empty
+            movie.subtitles.should be_empty #is actually empty in DB
+            movie.genres.should_not be_empty
+          end
+        end
+
+        it "should return a Viki::Error object when resource not found" do
+          VCR.use_cassette "movie_error" do
+            lambda { client.movies(50) }.should raise_error(Viki::Error, "The resource couldn't be found")
+          end
+        end
       end
     end
   end

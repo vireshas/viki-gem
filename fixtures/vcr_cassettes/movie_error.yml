@@ -1,0 +1,89 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://viki.com/api/v3/movies/50.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 301
+      message: Moved Permanently
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Thu, 14 Jun 2012 09:44:03 GMT
+      Content-Type: 
+      - text/plain
+      Connection: 
+      - keep-alive
+      Location: 
+      - http://www.viki.com/api/v3/movies/50.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+      X-Rack-Cache: 
+      - miss
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "595145907"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "moved to "
+    http_version: 
+  recorded_at: Thu, 14 Jun 2012 09:44:03 GMT
+- request: 
+    method: get
+    uri: http://www.viki.com/api/v3/movies/50.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 404
+      message: Not Found
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Thu, 14 Jun 2012 09:44:03 GMT
+      Content-Type: 
+      - application/json; charset=utf-8
+      Connection: 
+      - keep-alive
+      Cache-Control: 
+      - public, max-age=3600
+      Expires: 
+      - Thu, 14 Jun 2012 10:05:53 GMT
+      X-Ua-Compatible: 
+      - IE=Edge,chrome=1
+      X-Request-Id: 
+      - 6222bc7e2ac6ba4f25bf2621ed9f2acc
+      X-Runtime: 
+      - "0.179514"
+      X-Content-Digest: 
+      - 2c8e270613b8add90c2a4345a56c1c5b0f329df6
+      X-Rack-Cache: 
+      - fresh
+      Content-Length: 
+      - "57"
+      X-Varnish: 
+      - "1066328500"
+      Age: 
+      - "2290"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "{\"message\":\"The resource couldn't be found\",\"status\":404}"
+    http_version: 
+  recorded_at: Thu, 14 Jun 2012 09:44:03 GMT
+recorded_with: VCR 2.2.1

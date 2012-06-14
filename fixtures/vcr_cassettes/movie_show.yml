@@ -1,0 +1,91 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://viki.com/api/v3/movies/70436.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 301
+      message: Moved Permanently
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Thu, 14 Jun 2012 09:44:02 GMT
+      Content-Type: 
+      - text/plain
+      Connection: 
+      - keep-alive
+      Location: 
+      - http://www.viki.com/api/v3/movies/70436.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+      X-Rack-Cache: 
+      - miss
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "596942672"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "moved to "
+    http_version: 
+  recorded_at: Thu, 14 Jun 2012 09:44:02 GMT
+- request: 
+    method: get
+    uri: http://www.viki.com/api/v3/movies/70436.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Thu, 14 Jun 2012 09:44:02 GMT
+      Content-Type: 
+      - application/json; charset=utf-8
+      Connection: 
+      - keep-alive
+      Cache-Control: 
+      - public, max-age=3600
+      Expires: 
+      - Thu, 14 Jun 2012 10:26:25 GMT
+      X-Ua-Compatible: 
+      - IE=Edge,chrome=1
+      Etag: 
+      - "\"a9ce6ce64faa6d3c2fb2a235c4578ab6\""
+      X-Request-Id: 
+      - 9783e00e312f4b86865d13cc7f64556a
+      X-Runtime: 
+      - "0.057698"
+      X-Content-Digest: 
+      - 37dac39904411ad96b51564a5490958b656ae5e3
+      X-Rack-Cache: 
+      - fresh
+      Content-Length: 
+      - "1664"
+      X-Varnish: 
+      - 1862534763 1862509280
+      Age: 
+      - "1056"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":70436,\"title\":\"Muoi: The Legend of a Portrait\",\"description\":\"Yoon Hee, a South Korean writer, travels to Vietnam to research a local legend for her second book. Her best friend, who lives in Vietnam, tells her about the legend of Muoi, a beautiful girl who lived 100 years ago. Horribly disfigured by a jealous rival, Muoi committed suicide and returned as a spirit to seek vengeance. Muoi\\u2019s spirit is supposed to be trapped inside of her portrait, but as Yun Hee researches the legend for her book, she discovers that the spirit may be on the loose.\",\"created_at\":\"May 02, 2012 06:44\",\"uri\":\"http://www.viki.com/api/v3/movies/70436.json\",\"genres\":[{\"id\":12,\"name\":\"Horror & Supernatural\"}],\"origin_country\":\"Korea\",\"image\":\"http://m3.viki.com/aHR0cDovL2MyLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvODA1Mi81Mjc5N2E4ODBkMTljZTRhZjY3NTRiY2JlYjJkYWUyYTQwODE3YWRlLmpwZw==\",\"subtitles\":{},\"formats\":{\"flash_embed\":\"http://a2.vikiassets.com/1339658368/swfs/vikiplayer.swf?media_id=70436&host=www.viki.com&auto_play=true&source=api_v3&language_codes=en\",\"m3u8\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/70436/ios.m3u8\",\"res-150p\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/70436_mp4cell_150.mp4\",\"res-240p\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/70436_240p.mp4\",\"res-270p\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/70436_270p.mp4\",\"res-360p\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/70436_360p.mp4\",\"res-480p\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/70436_480p.mp4\",\"res-720p\":\"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/2/70436_720p.mp4\"}}"
+    http_version: 
+  recorded_at: Thu, 14 Jun 2012 09:44:02 GMT
+recorded_with: VCR 2.2.1

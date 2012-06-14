@@ -1,5 +1,6 @@
 require 'httparty'
 require 'viki/request'
+require 'viki/movie'
 
 module Viki
   class Client
@@ -13,6 +14,18 @@ module Viki
     attr_reader :access_token
 
     include Viki::Request
+
+    def movies(id = nil)
+      if id
+        Movie.new(request("movies/#{id}", { :access_token => self.access_token }))
+      else
+        response = request("movies", { :access_token => self.access_token })
+        movie_list = []
+        response["response"].each { |movie| movie_list << Movie.new(movie) }
+        movie_list
+      end
+
+    end
 
   end
 end

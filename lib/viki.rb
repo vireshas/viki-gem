@@ -9,8 +9,8 @@ module Viki
   # Alias for viki::Client.new
   #
   # @return {viki::Client})
-  #def self.client(options = { })
-  #  Viki::Client.new(options)
-  #end
+  def self.new(client_id, client_secret)
+    Viki::Client.new(client_id, client_secret)
+  end
 
 end

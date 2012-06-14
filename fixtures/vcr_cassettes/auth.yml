@@ -1,378 +1,253 @@
----
-http_interactions:
-- request:
+--- 
+http_interactions: 
+- request: 
     method: get
     uri: http://viki.com/oauth/token?client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e&grant_type=client_credentials
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
+      string: ""
     headers: {}
-  response:
-    status:
+
+  response: 
+    status: 
       code: 301
       message: Moved Permanently
-    headers:
-      Server:
+    headers: 
+      Server: 
       - nginx
-      Date:
+      Date: 
       - Wed, 13 Jun 2012 16:28:15 GMT
-      Content-Type:
+      Content-Type: 
       - text/plain
-      Location:
+      Location: 
       - http://www.viki.com/oauth/token?grant_type=client_credentials&client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e
-      X-Rack-Cache:
+      X-Rack-Cache: 
       - miss
-      Content-Length:
-      - '9'
-      X-Varnish:
-      - '662931491'
-      Via:
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "662931491"
+      Via: 
       - 1.1 varnish, 1.1 webcache1-cc (Cisco ACNS 5.5.19)
-      Connection:
+      Connection: 
       - Keep-Alive
-    body:
+    body: 
       encoding: US-ASCII
-      string: ! 'moved to '
+      string: "moved to "
     http_version: 
   recorded_at: Wed, 13 Jun 2012 16:28:15 GMT
-- request:
+- request: 
     method: get
     uri: http://www.viki.com/oauth/token?client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e&grant_type=client_credentials
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
+      string: ""
     headers: {}
-  response:
-    status:
+
+  response: 
+    status: 
       code: 404
       message: Not Found
-    headers:
-      Server:
+    headers: 
+      Server: 
       - nginx
-      Date:
+      Date: 
       - Wed, 13 Jun 2012 16:28:16 GMT
-      Content-Type:
+      Content-Type: 
       - text/html; charset=utf-8
-      X-Request-Id:
+      X-Request-Id: 
       - df1b63e258cf13110c77af9d59aa63b7
-      X-Runtime:
-      - '0.007018'
-      X-Rack-Cache:
+      X-Runtime: 
+      - "0.007018"
+      X-Rack-Cache: 
       - miss
-      Content-Length:
-      - '4226'
-      X-Varnish:
-      - '1672530011'
-      Via:
+      Content-Length: 
+      - "4226"
+      X-Varnish: 
+      - "1672530011"
+      Via: 
       - 1.1 varnish, 1.1 webcache1-cc (Cisco ACNS 5.5.19)
-      Connection:
+      Connection: 
       - Keep-Alive
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
-        PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICA8dGl0bGU+CiAgICBO
-        b3QgRm91bmQgLSBWaWtpCiAgPC90aXRsZT4KCiAgPG1ldGEgY2hhcnNldD0n
-        dXRmLTgnLz4KICA8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNv
-        bnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD11dGYtOCIvPgogIDxtZXRhIGh0
-        dHAtZXF1aXY9IkNvbnRlbnQtTGFuZ3VhZ2UiIGNvbnRlbnQ9ImVuIi8+CiAg
-        PG1ldGEgY29udGVudD0iIiBuYW1lPSJkZXNjcmlwdGlvbiIvPgoKICA8bGlu
-        ayBocmVmPSJodHRwOi8vYTIudmlraWFzc2V0cy5jb20vMTMzNDU5NDczOS9p
-        bWFnZXMvZmF2aWNvbi5pY28iIHJlbD0ic2hvcnRjdXQgaWNvbiIKICAgICAg
-        ICB0eXBlPSJpbWFnZS92bmQubWljcm9zb2Z0Lmljb24iLz4KICA8c3R5bGU+
-        CiAgICBodG1sIHsKICAgICAgZm9udC1mYW1pbHk6ICdQcm94aW1hUmVndWxh
-        cicsICdBcmlhbCBOYXJyb3cnLCAnQXJpYWwnLCAnSGVsdmV0aWNhJywgc2Fu
-        cy1zZXJpZjsKICAgICAgZm9udC1zaXplOiAxNXB4OwogICAgICBjb2xvcjog
-        IzVFNTc0NzsKICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICB3aWR0aDogMTAw
-        JTsKICAgICAgZmxvYXQ6IGxlZnQ7CgogICAgfQoKICAgIGJvZHkgewogICAg
-        ICBiYWNrZ3JvdW5kLWNvbG9yOiAjQjJENkUwOwogICAgICBwYWRkaW5nOiAw
-        OwogICAgICBtYXJnaW46IDA7CiAgICAgIGhlaWdodDogMTAwJTsKICAgIH0K
-        CiAgICB1bCwgbGkgewogICAgICBsaXN0LXN0eWxlOiBub25lOwogICAgICBt
-        YXJnaW46IDA7CiAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNsZWFy
-        Zml4OmFmdGVyIHsKICAgICAgY29udGVudDogIi4iOwogICAgICBkaXNwbGF5
-        OiBibG9jazsKICAgICAgaGVpZ2h0OiAwOwogICAgICBjbGVhcjogYm90aDsK
-        ICAgICAgdmlzaWJpbGl0eTogaGlkZGVuOwogICAgfQoKICAgIC5jbGVhcmZp
-        eCB7CiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgIH0KCiAgICAu
-        Y2xlYXJmaXggewogICAgICBkaXNwbGF5OiBibG9jazsKICAgIH0KCiAgICAu
-        Y2xlYXIgewogICAgICBjbGVhcjogYm90aDsKICAgIH0KCiAgICAuaGlkZS10
-        ZXh0IHsKICAgICAgdGV4dC1pbmRlbnQ6IDEwMCU7CiAgICAgIHdoaXRlLXNw
-        YWNlOiBub3dyYXA7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICB9Cgog
-        ICAgLmltZyB7CiAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnaHR0cDov
-        L2EwLnZpa2lhc3NldHMuY29tLzEzMzQ1OTQ3NDAvaW1hZ2VzL3Nwcml0ZXMv
-        YXNzZXRzLnBuZycpOwogICAgfQoKICAgIC5sb2dvIHsKICAgICAgYmFja2dy
-        b3VuZC1wb3NpdGlvbjogMHB4IDBweDsKICAgICAgd2lkdGg6IDc2cHg7CiAg
-        ICAgIGhlaWdodDogNjJweDsKICAgICAgbWFyZ2luOiAwIDAgMCAzMHB4Owog
-        ICAgfQoKICAgIC5sb2dvIGEgewogICAgICBkaXNwbGF5OiBibG9jazsKICAg
-        ICAgd2lkdGg6IDc2cHg7CiAgICAgIGhlaWdodDogNjFweDsKCiAgICB9Cgog
-        ICAgaDEgewogICAgICBjb2xvcjogIzI0QTdDRjsKICAgIH0KCiAgICAuYm9k
-        eS1jb250YWluZXIgewogICAgICB3aWR0aDogOTc2cHg7CiAgICAgIGhlaWdo
-        dDogMTAwJTsKICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgIHBhZGRpbmct
-        dG9wOiAyMHB4OwogICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkNGOUY4Owog
-        ICAgICBkaXNwbGF5OiBibG9jazsKICAgICAgLW1vei1ib3gtc2hhZG93OiAj
-        ODg5ZmEzIDAgMCAxMHB4IDNweDsKICAgICAgLXdlYmtpdC1ib3gtc2hhZG93
-        OiAjODg5RkEzIDAgMCAxMHB4IDNweDsKICAgICAgLW8tYm94LXNoYWRvdzog
-        Izg4OWZhMyAwIDAgMTBweCAzcHg7CiAgICAgIGJveC1zaGFkb3c6ICM4ODlG
-        QTMgMCAwIDEwcHggM3B4OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzIHsK
-        ICAgICAgd2lkdGg6IDQ3MHB4OwogICAgICBtYXJnaW46IDYwcHggYXV0bzsK
-        ICAgICAgcGFkZGluZy1sZWZ0OiAyMzBweDsKICAgICAgYm9yZGVyOiBzb2xp
-        ZCAxcHggIzAwMDsKICAgICAgLW1vei1ib3JkZXItcmFkaXVzOiA1cHg7CiAg
-        ICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4OwogICAgICBib3JkZXIt
-        cmFkaXVzOiA1cHg7CiAgICAgIC1tb3otYm94LXNoYWRvdzogM3B4IDNweCA1
-        cHggI2FhYTsKICAgICAgLXdlYmtpdC1ib3gtc2hhZG93OiAzcHggM3B4IDVw
-        eCAjYWFhOwogICAgICBib3gtc2hhZG93OiAzcHggM3B4IDVweCAjYWFhOwog
-        ICAgICBiYWNrZ3JvdW5kOiB1cmwoJ2h0dHA6Ly9hMS52aWtpYXNzZXRzLmNv
-        bS8xMzM0NTk0NzQwL2ltYWdlcy93YXRjaGRvZy5qcGcnKSAwIDAgbm8tcmVw
-        ZWF0OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzIGgxIHsKICAgICAgbWFy
-        Z2luOiAwcHggMCAxNXB4IDA7CiAgICB9CgogICAgLnNlcnZlci1lcnJvcnMu
-        bm90LWZvdW5kIHsKICAgICAgYmFja2dyb3VuZDogdXJsKCdodHRwOi8vYTIu
-        dmlraWFzc2V0cy5jb20vMTMzNDU5NDc0MC9pbWFnZXMvZTQwNC5wbmcnKSAx
-        NXB4IDEwcHggbm8tcmVwZWF0OwogICAgICB3aWR0aDogNDkwcHg7CiAgIAog
-        ICAgICBwYWRkaW5nLWxlZnQ6IDI0MHB4OwogICAgICBtYXJnaW4tYm90dG9t
-        OiAzMHB4OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzLm5vdC1mb3VuZCAu
-        Y29weSB7CiAgICAgIHBhZGRpbmctdG9wOiAyMHB4OwogICAgICBmbG9hdDog
-        bGVmdDsKICAgICAgd2lkdGg6IDQ3NXB4OwogICAgfQoKICAgIC5zZXJ2ZXIt
-        ZXJyb3JzLm5vdC1mb3VuZCAuY29weSBoMiB7CiAgICAgIG1hcmdpbi1ib3R0
-        b206IDIwcHg7CiAgICAgIGhlaWdodDogMzFweDsKICAgICAgb3ZlcmZsb3c6
-        IGhpZGRlbjsKICAgIH0KCiAgICAuc2VydmVyLWVycm9ycy5ub3QtZm91bmQg
-        LmNvcHkgLmNvbHVtbiB7CiAgICAgIHdpZHRoOiA0MDBweDsKICAgICAgZmxv
-        YXQ6IGxlZnQ7CiAgICAgIG1hcmdpbi1sZWZ0OiAyMHB4OwogICAgfQoKICAg
-        IC5zZXJ2ZXItZXJyb3JzLm5vdC1mb3VuZCAuY29weSAuY29sdW1uIGg1IHsK
-        ICAgICAgbWFyZ2luLWJvdHRvbTogNXB4OwogICAgfQoKICAgIC5zZXJ2ZXIt
-        ZXJyb3JzLm5vdC1mb3VuZCAuY29weSAuY29sdW1uIHVsIHsKICAgICAgbWFy
-        Z2luOiA1cHggMDsKICAgIH0KCiAgICAuc2VydmVyLWVycm9ycy5ub3QtZm91
-        bmQgLmNvcHkgLmNvbHVtbiB1bCBsaSB7CiAgICAgIHBhZGRpbmctbGVmdDog
-        NnB4OwogICAgICBiYWNrZ3JvdW5kOiB1cmwoJ2h0dHA6Ly9hMy52aWtpYXNz
-        ZXRzLmNvbS8xMzM0NTk0NzQwL2ltYWdlcy9zbWFsbC1ibHVlLXRyaWFuZ2xl
-        LnBuZycpIDAgNTAlIG5vLXJlcGVhdDsKICAgIH0KICA8L3N0eWxlPgo8L2hl
-        YWQ+Cjxib2R5IGNsYXNzPSJwdWJsaWNfZXJyb3JzIj4KCjxkaXYgY2xhc3M9
-        ImJvZHktY29udGFpbmVyIj4KICA8ZGl2IGNsYXNzPSJpbWcgbG9nbyI+CiAg
-        ICA8aDE+CiAgICAgIDxhIGhyZWY9Ii8iIGNsYXNzPSJoaWRlLXRleHQiPlZp
-        a2k8L2E+CiAgICA8L2gxPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJzZXJ2
-        ZXItZXJyb3JzIG5vdC1mb3VuZCBjbGVhcmZpeCI+CiAgICA8ZGl2IGNsYXNz
-        PSJjb3B5IGNsZWFyZml4Ij4KICAgICAgPGgxPlRoZSB2aWRlbyB5b3UncmUg
-        bG9va2luZyBmb3IgaXMgbm8gbG9uZ2VyIGF2YWlsYWJsZS4gOig8L2gxPgoK
-        ICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIj4KICAgICAgICA8cD4gSGVyZSBh
-        cmUgc29tZSB0eXBpY2FsIHJlYXNvbnMgd2h5OjwvcD4KICAgICAgICA8dWw+
-        CiAgICAgICAgICA8bGk+VGhlIGNoYW5uZWwgbWFuYWdlciBoYXMgcmVtb3Zl
-        ZCBpdDwvbGk+CiAgICAgICAgICA8bGk+VGhlIGxpY2Vuc2luZyBwZXJpb2Qg
-        Zm9yIHRoaXMgdmlkZW8gaGFzIGV4cGlyZWQ8L2xpPgogICAgICAgICAgPGxp
-        PlRoZSB2aWRlbyB3YXMgcmVtb3ZlZCBkdWUgdG8gdmlvbGF0aW9uIG9mIHRo
-        ZcKgVmlraSBUZXJtcyBvZiBVc2U8L2xpPgogICAgICAgICAgPGxpPlRoZSBt
-        YW5hZ2VyIG9mIHRoZSBjaGFubmVsIHRob3VnaHQgaXQgZGlkbid0IGJlbG9u
-        ZyBoZXJlPC9saT4KICAgICAgICAgIDxsaT5JdCB3YXMgc3BhbTwvbGk+CiAg
-        ICAgICAgPC91bD4KICAgICAgICA8cD4gVGhlcmUgYXJlIGVuZGxlc3MgaG91
-        cnMgb2YgPGEgaHJlZj0iaHR0cDovL3d3dy52aWtpLmNvbSI+ZnVuIG9uIFZp
-        a2k8L2E+LCBzbyB3ZSBob3BlIHlvdSBmaW5kIGFub3RoZXIgdmlkZW8gdG8g
-        a2VlcCB5b3UgZW50ZXJ0YWluZWQhIjwvcD4KICAgICAgPC9kaXY+CgogICAg
-        PC9kaXY+CiAgPC9kaXY+CgoKPC9kaXY+CjwvYm9keT4KPC9odG1sPgo=
+      string: "<!DOCTYPE html>\n\
+        <html>\n\
+        <head>\n  <title>\n    Not Found - Viki\n  </title>\n\n  <meta charset='utf-8'/>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n  <meta http-equiv=\"Content-Language\" content=\"en\"/>\n  <meta content=\"\" name=\"description\"/>\n\n  <link href=\"http://a2.vikiassets.com/1334594739/images/favicon.ico\" rel=\"shortcut icon\"\n        type=\"image/vnd.microsoft.icon\"/>\n  <style>\n    html {\n      font-family: 'ProximaRegular', 'Arial Narrow', 'Arial', 'Helvetica', sans-serif;\n      font-size: 15px;\n      color: #5E5747;\n      height: 100%;\n      width: 100%;\n      float: left;\n\n    }\n\n    body {\n      background-color: #B2D6E0;\n      padding: 0;\n      margin: 0;\n      height: 100%;\n    }\n\n    ul, li {\n      list-style: none;\n      margin: 0;\n      padding: 0;\n    }\n\n    .clearfix:after {\n      content: \".\";\n      display: block;\n      height: 0;\n      clear: both;\n      visibility: hidden;\n    }\n\n    .clearfix {\n      display: inline-block;\n    }\n\n    .clearfix {\n      display: block;\n    }\n\n    .clear {\n      clear: both;\n    }\n\n    .hide-text {\n      text-indent: 100%;\n      white-space: nowrap;\n      overflow: hidden;\n    }\n\n    .img {\n      background-image: url('http://a0.vikiassets.com/1334594740/images/sprites/assets.png');\n    }\n\n    .logo {\n      background-position: 0px 0px;\n      width: 76px;\n      height: 62px;\n      margin: 0 0 0 30px;\n    }\n\n    .logo a {\n      display: block;\n      width: 76px;\n      height: 61px;\n\n    }\n\n    h1 {\n      color: #24A7CF;\n    }\n\n    .body-container {\n      width: 976px;\n      height: 100%;\n      margin: 0 auto;\n      padding-top: 20px;\n      background-color: #FCF9F8;\n      display: block;\n      -moz-box-shadow: #889fa3 0 0 10px 3px;\n      -webkit-box-shadow: #889FA3 0 0 10px 3px;\n      -o-box-shadow: #889fa3 0 0 10px 3px;\n      box-shadow: #889FA3 0 0 10px 3px;\n    }\n\n    .server-errors {\n      width: 470px;\n      margin: 60px auto;\n      padding-left: 230px;\n      border: solid 1px #000;\n      -moz-border-radius: 5px;\n      -webkit-border-radius: 5px;\n      border-radius: 5px;\n      -moz-box-shadow: 3px 3px 5px #aaa;\n      -webkit-box-shadow: 3px 3px 5px #aaa;\n      box-shadow: 3px 3px 5px #aaa;\n      background: url('http://a1.vikiassets.com/1334594740/images/watchdog.jpg') 0 0 no-repeat;\n    }\n\n    .server-errors h1 {\n      margin: 0px 0 15px 0;\n    }\n\n    .server-errors.not-found {\n      background: url('http://a2.vikiassets.com/1334594740/images/e404.png') 15px 10px no-repeat;\n      width: 490px;\n   \n      padding-left: 240px;\n      margin-bottom: 30px;\n    }\n\n    .server-errors.not-found .copy {\n      padding-top: 20px;\n      float: left;\n      width: 475px;\n    }\n\n    .server-errors.not-found .copy h2 {\n      margin-bottom: 20px;\n      height: 31px;\n      overflow: hidden;\n    }\n\n    .server-errors.not-found .copy .column {\n      width: 400px;\n      float: left;\n      margin-left: 20px;\n    }\n\n    .server-errors.not-found .copy .column h5 {\n      margin-bottom: 5px;\n    }\n\n    .server-errors.not-found .copy .column ul {\n      margin: 5px 0;\n    }\n\n    .server-errors.not-found .copy .column ul li {\n      padding-left: 6px;\n      background: url('http://a3.vikiassets.com/1334594740/images/small-blue-triangle.png') 0 50% no-repeat;\n    }\n  </style>\n\
+        </head>\n\
+        <body class=\"public_errors\">\n\n\
+        <div class=\"body-container\">\n  <div class=\"img logo\">\n    <h1>\n      <a href=\"/\" class=\"hide-text\">Viki</a>\n    </h1>\n  </div>\n\n  <div class=\"server-errors not-found clearfix\">\n    <div class=\"copy clearfix\">\n      <h1>The video you're looking for is no longer available. :(</h1>\n\n      <div class=\"column\">\n        <p> Here are some typical reasons why:</p>\n        <ul>\n          <li>The channel manager has removed it</li>\n          <li>The licensing period for this video has expired</li>\n          <li>The video was removed due to violation of the\xC2\xA0Viki Terms of Use</li>\n          <li>The manager of the channel thought it didn't belong here</li>\n          <li>It was spam</li>\n        </ul>\n        <p> There are endless hours of <a href=\"http://www.viki.com\">fun on Viki</a>, so we hope you find another video to keep you entertained!\"</p>\n      </div>\n\n    </div>\n  </div>\n\n\n\
+        </div>\n\
+        </body>\n\
+        </html>\n"
     http_version: 
   recorded_at: Wed, 13 Jun 2012 16:28:16 GMT
-- request:
+- request: 
     method: get
     uri: http://vikiping.com/oauth/token?client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e&grant_type=client_credentials
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
+      string: ""
     headers: {}
-  response:
-    status:
+
+  response: 
+    status: 
       code: 301
       message: Moved Permanently
-    headers:
-      Server:
+    headers: 
+      Server: 
       - nginx
-      Date:
+      Date: 
       - Wed, 13 Jun 2012 16:31:56 GMT
-      Content-Type:
+      Content-Type: 
       - text/plain
-      Location:
+      Location: 
       - http://www.vikiping.com/oauth/token?grant_type=client_credentials&client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e
-      X-Rack-Cache:
+      X-Rack-Cache: 
       - miss
-      Content-Length:
-      - '9'
-      X-Varnish:
-      - '1387286789'
-      Via:
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "1387286789"
+      Via: 
       - 1.1 varnish, 1.1 webcache1-cc (Cisco ACNS 5.5.19)
-      Connection:
+      Connection: 
       - Keep-Alive
-    body:
+    body: 
       encoding: US-ASCII
-      string: ! 'moved to '
+      string: "moved to "
     http_version: 
   recorded_at: Wed, 13 Jun 2012 16:31:56 GMT
-- request:
+- request: 
     method: get
     uri: http://www.vikiping.com/oauth/token?client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e&grant_type=client_credentials
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
+      string: ""
     headers: {}
-  response:
-    status:
+
+  response: 
+    status: 
       code: 404
       message: Not Found
-    headers:
-      Server:
+    headers: 
+      Server: 
       - nginx
-      Date:
+      Date: 
       - Wed, 13 Jun 2012 16:31:57 GMT
-      Content-Type:
+      Content-Type: 
       - text/html; charset=utf-8
-      X-Request-Id:
+      X-Request-Id: 
       - 12484f380c9abb2a5ad465552176a113
-      X-Runtime:
-      - '0.008278'
-      X-Rack-Cache:
+      X-Runtime: 
+      - "0.008278"
+      X-Rack-Cache: 
       - miss
-      Content-Length:
-      - '4226'
-      X-Varnish:
-      - '1064618250'
-      Via:
+      Content-Length: 
+      - "4226"
+      X-Varnish: 
+      - "1064618250"
+      Via: 
       - 1.1 varnish, 1.1 webcache1-cc (Cisco ACNS 5.5.19)
-      Connection:
+      Connection: 
       - Keep-Alive
-    body:
+    body: 
       encoding: ASCII-8BIT
-      string: !binary |-
-        PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICA8dGl0bGU+CiAgICBO
-        b3QgRm91bmQgLSBWaWtpCiAgPC90aXRsZT4KCiAgPG1ldGEgY2hhcnNldD0n
-        dXRmLTgnLz4KICA8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNv
-        bnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD11dGYtOCIvPgogIDxtZXRhIGh0
-        dHAtZXF1aXY9IkNvbnRlbnQtTGFuZ3VhZ2UiIGNvbnRlbnQ9ImVuIi8+CiAg
-        PG1ldGEgY29udGVudD0iIiBuYW1lPSJkZXNjcmlwdGlvbiIvPgoKICA8bGlu
-        ayBocmVmPSJodHRwOi8vYTIudmlraWFzc2V0cy5jb20vMTMzNDU5NDczOS9p
-        bWFnZXMvZmF2aWNvbi5pY28iIHJlbD0ic2hvcnRjdXQgaWNvbiIKICAgICAg
-        ICB0eXBlPSJpbWFnZS92bmQubWljcm9zb2Z0Lmljb24iLz4KICA8c3R5bGU+
-        CiAgICBodG1sIHsKICAgICAgZm9udC1mYW1pbHk6ICdQcm94aW1hUmVndWxh
-        cicsICdBcmlhbCBOYXJyb3cnLCAnQXJpYWwnLCAnSGVsdmV0aWNhJywgc2Fu
-        cy1zZXJpZjsKICAgICAgZm9udC1zaXplOiAxNXB4OwogICAgICBjb2xvcjog
-        IzVFNTc0NzsKICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICB3aWR0aDogMTAw
-        JTsKICAgICAgZmxvYXQ6IGxlZnQ7CgogICAgfQoKICAgIGJvZHkgewogICAg
-        ICBiYWNrZ3JvdW5kLWNvbG9yOiAjQjJENkUwOwogICAgICBwYWRkaW5nOiAw
-        OwogICAgICBtYXJnaW46IDA7CiAgICAgIGhlaWdodDogMTAwJTsKICAgIH0K
-        CiAgICB1bCwgbGkgewogICAgICBsaXN0LXN0eWxlOiBub25lOwogICAgICBt
-        YXJnaW46IDA7CiAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNsZWFy
-        Zml4OmFmdGVyIHsKICAgICAgY29udGVudDogIi4iOwogICAgICBkaXNwbGF5
-        OiBibG9jazsKICAgICAgaGVpZ2h0OiAwOwogICAgICBjbGVhcjogYm90aDsK
-        ICAgICAgdmlzaWJpbGl0eTogaGlkZGVuOwogICAgfQoKICAgIC5jbGVhcmZp
-        eCB7CiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgIH0KCiAgICAu
-        Y2xlYXJmaXggewogICAgICBkaXNwbGF5OiBibG9jazsKICAgIH0KCiAgICAu
-        Y2xlYXIgewogICAgICBjbGVhcjogYm90aDsKICAgIH0KCiAgICAuaGlkZS10
-        ZXh0IHsKICAgICAgdGV4dC1pbmRlbnQ6IDEwMCU7CiAgICAgIHdoaXRlLXNw
-        YWNlOiBub3dyYXA7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICB9Cgog
-        ICAgLmltZyB7CiAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnaHR0cDov
-        L2EwLnZpa2lhc3NldHMuY29tLzEzMzQ1OTQ3NDAvaW1hZ2VzL3Nwcml0ZXMv
-        YXNzZXRzLnBuZycpOwogICAgfQoKICAgIC5sb2dvIHsKICAgICAgYmFja2dy
-        b3VuZC1wb3NpdGlvbjogMHB4IDBweDsKICAgICAgd2lkdGg6IDc2cHg7CiAg
-        ICAgIGhlaWdodDogNjJweDsKICAgICAgbWFyZ2luOiAwIDAgMCAzMHB4Owog
-        ICAgfQoKICAgIC5sb2dvIGEgewogICAgICBkaXNwbGF5OiBibG9jazsKICAg
-        ICAgd2lkdGg6IDc2cHg7CiAgICAgIGhlaWdodDogNjFweDsKCiAgICB9Cgog
-        ICAgaDEgewogICAgICBjb2xvcjogIzI0QTdDRjsKICAgIH0KCiAgICAuYm9k
-        eS1jb250YWluZXIgewogICAgICB3aWR0aDogOTc2cHg7CiAgICAgIGhlaWdo
-        dDogMTAwJTsKICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgIHBhZGRpbmct
-        dG9wOiAyMHB4OwogICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkNGOUY4Owog
-        ICAgICBkaXNwbGF5OiBibG9jazsKICAgICAgLW1vei1ib3gtc2hhZG93OiAj
-        ODg5ZmEzIDAgMCAxMHB4IDNweDsKICAgICAgLXdlYmtpdC1ib3gtc2hhZG93
-        OiAjODg5RkEzIDAgMCAxMHB4IDNweDsKICAgICAgLW8tYm94LXNoYWRvdzog
-        Izg4OWZhMyAwIDAgMTBweCAzcHg7CiAgICAgIGJveC1zaGFkb3c6ICM4ODlG
-        QTMgMCAwIDEwcHggM3B4OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzIHsK
-        ICAgICAgd2lkdGg6IDQ3MHB4OwogICAgICBtYXJnaW46IDYwcHggYXV0bzsK
-        ICAgICAgcGFkZGluZy1sZWZ0OiAyMzBweDsKICAgICAgYm9yZGVyOiBzb2xp
-        ZCAxcHggIzAwMDsKICAgICAgLW1vei1ib3JkZXItcmFkaXVzOiA1cHg7CiAg
-        ICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4OwogICAgICBib3JkZXIt
-        cmFkaXVzOiA1cHg7CiAgICAgIC1tb3otYm94LXNoYWRvdzogM3B4IDNweCA1
-        cHggI2FhYTsKICAgICAgLXdlYmtpdC1ib3gtc2hhZG93OiAzcHggM3B4IDVw
-        eCAjYWFhOwogICAgICBib3gtc2hhZG93OiAzcHggM3B4IDVweCAjYWFhOwog
-        ICAgICBiYWNrZ3JvdW5kOiB1cmwoJ2h0dHA6Ly9hMS52aWtpYXNzZXRzLmNv
-        bS8xMzM0NTk0NzQwL2ltYWdlcy93YXRjaGRvZy5qcGcnKSAwIDAgbm8tcmVw
-        ZWF0OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzIGgxIHsKICAgICAgbWFy
-        Z2luOiAwcHggMCAxNXB4IDA7CiAgICB9CgogICAgLnNlcnZlci1lcnJvcnMu
-        bm90LWZvdW5kIHsKICAgICAgYmFja2dyb3VuZDogdXJsKCdodHRwOi8vYTIu
-        dmlraWFzc2V0cy5jb20vMTMzNDU5NDc0MC9pbWFnZXMvZTQwNC5wbmcnKSAx
-        NXB4IDEwcHggbm8tcmVwZWF0OwogICAgICB3aWR0aDogNDkwcHg7CiAgIAog
-        ICAgICBwYWRkaW5nLWxlZnQ6IDI0MHB4OwogICAgICBtYXJnaW4tYm90dG9t
-        OiAzMHB4OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzLm5vdC1mb3VuZCAu
-        Y29weSB7CiAgICAgIHBhZGRpbmctdG9wOiAyMHB4OwogICAgICBmbG9hdDog
-        bGVmdDsKICAgICAgd2lkdGg6IDQ3NXB4OwogICAgfQoKICAgIC5zZXJ2ZXIt
-        ZXJyb3JzLm5vdC1mb3VuZCAuY29weSBoMiB7CiAgICAgIG1hcmdpbi1ib3R0
-        b206IDIwcHg7CiAgICAgIGhlaWdodDogMzFweDsKICAgICAgb3ZlcmZsb3c6
-        IGhpZGRlbjsKICAgIH0KCiAgICAuc2VydmVyLWVycm9ycy5ub3QtZm91bmQg
-        LmNvcHkgLmNvbHVtbiB7CiAgICAgIHdpZHRoOiA0MDBweDsKICAgICAgZmxv
-        YXQ6IGxlZnQ7CiAgICAgIG1hcmdpbi1sZWZ0OiAyMHB4OwogICAgfQoKICAg
-        IC5zZXJ2ZXItZXJyb3JzLm5vdC1mb3VuZCAuY29weSAuY29sdW1uIGg1IHsK
-        ICAgICAgbWFyZ2luLWJvdHRvbTogNXB4OwogICAgfQoKICAgIC5zZXJ2ZXIt
-        ZXJyb3JzLm5vdC1mb3VuZCAuY29weSAuY29sdW1uIHVsIHsKICAgICAgbWFy
-        Z2luOiA1cHggMDsKICAgIH0KCiAgICAuc2VydmVyLWVycm9ycy5ub3QtZm91
-        bmQgLmNvcHkgLmNvbHVtbiB1bCBsaSB7CiAgICAgIHBhZGRpbmctbGVmdDog
-        NnB4OwogICAgICBiYWNrZ3JvdW5kOiB1cmwoJ2h0dHA6Ly9hMy52aWtpYXNz
-        ZXRzLmNvbS8xMzM0NTk0NzQwL2ltYWdlcy9zbWFsbC1ibHVlLXRyaWFuZ2xl
-        LnBuZycpIDAgNTAlIG5vLXJlcGVhdDsKICAgIH0KICA8L3N0eWxlPgo8L2hl
-        YWQ+Cjxib2R5IGNsYXNzPSJwdWJsaWNfZXJyb3JzIj4KCjxkaXYgY2xhc3M9
-        ImJvZHktY29udGFpbmVyIj4KICA8ZGl2IGNsYXNzPSJpbWcgbG9nbyI+CiAg
-        ICA8aDE+CiAgICAgIDxhIGhyZWY9Ii8iIGNsYXNzPSJoaWRlLXRleHQiPlZp
-        a2k8L2E+CiAgICA8L2gxPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJzZXJ2
-        ZXItZXJyb3JzIG5vdC1mb3VuZCBjbGVhcmZpeCI+CiAgICA8ZGl2IGNsYXNz
-        PSJjb3B5IGNsZWFyZml4Ij4KICAgICAgPGgxPlRoZSB2aWRlbyB5b3UncmUg
-        bG9va2luZyBmb3IgaXMgbm8gbG9uZ2VyIGF2YWlsYWJsZS4gOig8L2gxPgoK
-        ICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIj4KICAgICAgICA8cD4gSGVyZSBh
-        cmUgc29tZSB0eXBpY2FsIHJlYXNvbnMgd2h5OjwvcD4KICAgICAgICA8dWw+
-        CiAgICAgICAgICA8bGk+VGhlIGNoYW5uZWwgbWFuYWdlciBoYXMgcmVtb3Zl
-        ZCBpdDwvbGk+CiAgICAgICAgICA8bGk+VGhlIGxpY2Vuc2luZyBwZXJpb2Qg
-        Zm9yIHRoaXMgdmlkZW8gaGFzIGV4cGlyZWQ8L2xpPgogICAgICAgICAgPGxp
-        PlRoZSB2aWRlbyB3YXMgcmVtb3ZlZCBkdWUgdG8gdmlvbGF0aW9uIG9mIHRo
-        ZcKgVmlraSBUZXJtcyBvZiBVc2U8L2xpPgogICAgICAgICAgPGxpPlRoZSBt
-        YW5hZ2VyIG9mIHRoZSBjaGFubmVsIHRob3VnaHQgaXQgZGlkbid0IGJlbG9u
-        ZyBoZXJlPC9saT4KICAgICAgICAgIDxsaT5JdCB3YXMgc3BhbTwvbGk+CiAg
-        ICAgICAgPC91bD4KICAgICAgICA8cD4gVGhlcmUgYXJlIGVuZGxlc3MgaG91
-        cnMgb2YgPGEgaHJlZj0iaHR0cDovL3d3dy52aWtpLmNvbSI+ZnVuIG9uIFZp
-        a2k8L2E+LCBzbyB3ZSBob3BlIHlvdSBmaW5kIGFub3RoZXIgdmlkZW8gdG8g
-        a2VlcCB5b3UgZW50ZXJ0YWluZWQhIjwvcD4KICAgICAgPC9kaXY+CgogICAg
-        PC9kaXY+CiAgPC9kaXY+CgoKPC9kaXY+CjwvYm9keT4KPC9odG1sPgo=
+      string: "<!DOCTYPE html>\n\
+        <html>\n\
+        <head>\n  <title>\n    Not Found - Viki\n  </title>\n\n  <meta charset='utf-8'/>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n  <meta http-equiv=\"Content-Language\" content=\"en\"/>\n  <meta content=\"\" name=\"description\"/>\n\n  <link href=\"http://a2.vikiassets.com/1334594739/images/favicon.ico\" rel=\"shortcut icon\"\n        type=\"image/vnd.microsoft.icon\"/>\n  <style>\n    html {\n      font-family: 'ProximaRegular', 'Arial Narrow', 'Arial', 'Helvetica', sans-serif;\n      font-size: 15px;\n      color: #5E5747;\n      height: 100%;\n      width: 100%;\n      float: left;\n\n    }\n\n    body {\n      background-color: #B2D6E0;\n      padding: 0;\n      margin: 0;\n      height: 100%;\n    }\n\n    ul, li {\n      list-style: none;\n      margin: 0;\n      padding: 0;\n    }\n\n    .clearfix:after {\n      content: \".\";\n      display: block;\n      height: 0;\n      clear: both;\n      visibility: hidden;\n    }\n\n    .clearfix {\n      display: inline-block;\n    }\n\n    .clearfix {\n      display: block;\n    }\n\n    .clear {\n      clear: both;\n    }\n\n    .hide-text {\n      text-indent: 100%;\n      white-space: nowrap;\n      overflow: hidden;\n    }\n\n    .img {\n      background-image: url('http://a0.vikiassets.com/1334594740/images/sprites/assets.png');\n    }\n\n    .logo {\n      background-position: 0px 0px;\n      width: 76px;\n      height: 62px;\n      margin: 0 0 0 30px;\n    }\n\n    .logo a {\n      display: block;\n      width: 76px;\n      height: 61px;\n\n    }\n\n    h1 {\n      color: #24A7CF;\n    }\n\n    .body-container {\n      width: 976px;\n      height: 100%;\n      margin: 0 auto;\n      padding-top: 20px;\n      background-color: #FCF9F8;\n      display: block;\n      -moz-box-shadow: #889fa3 0 0 10px 3px;\n      -webkit-box-shadow: #889FA3 0 0 10px 3px;\n      -o-box-shadow: #889fa3 0 0 10px 3px;\n      box-shadow: #889FA3 0 0 10px 3px;\n    }\n\n    .server-errors {\n      width: 470px;\n      margin: 60px auto;\n      padding-left: 230px;\n      border: solid 1px #000;\n      -moz-border-radius: 5px;\n      -webkit-border-radius: 5px;\n      border-radius: 5px;\n      -moz-box-shadow: 3px 3px 5px #aaa;\n      -webkit-box-shadow: 3px 3px 5px #aaa;\n      box-shadow: 3px 3px 5px #aaa;\n      background: url('http://a1.vikiassets.com/1334594740/images/watchdog.jpg') 0 0 no-repeat;\n    }\n\n    .server-errors h1 {\n      margin: 0px 0 15px 0;\n    }\n\n    .server-errors.not-found {\n      background: url('http://a2.vikiassets.com/1334594740/images/e404.png') 15px 10px no-repeat;\n      width: 490px;\n   \n      padding-left: 240px;\n      margin-bottom: 30px;\n    }\n\n    .server-errors.not-found .copy {\n      padding-top: 20px;\n      float: left;\n      width: 475px;\n    }\n\n    .server-errors.not-found .copy h2 {\n      margin-bottom: 20px;\n      height: 31px;\n      overflow: hidden;\n    }\n\n    .server-errors.not-found .copy .column {\n      width: 400px;\n      float: left;\n      margin-left: 20px;\n    }\n\n    .server-errors.not-found .copy .column h5 {\n      margin-bottom: 5px;\n    }\n\n    .server-errors.not-found .copy .column ul {\n      margin: 5px 0;\n    }\n\n    .server-errors.not-found .copy .column ul li {\n      padding-left: 6px;\n      background: url('http://a3.vikiassets.com/1334594740/images/small-blue-triangle.png') 0 50% no-repeat;\n    }\n  </style>\n\
+        </head>\n\
+        <body class=\"public_errors\">\n\n\
+        <div class=\"body-container\">\n  <div class=\"img logo\">\n    <h1>\n      <a href=\"/\" class=\"hide-text\">Viki</a>\n    </h1>\n  </div>\n\n  <div class=\"server-errors not-found clearfix\">\n    <div class=\"copy clearfix\">\n      <h1>The video you're looking for is no longer available. :(</h1>\n\n      <div class=\"column\">\n        <p> Here are some typical reasons why:</p>\n        <ul>\n          <li>The channel manager has removed it</li>\n          <li>The licensing period for this video has expired</li>\n          <li>The video was removed due to violation of the\xC2\xA0Viki Terms of Use</li>\n          <li>The manager of the channel thought it didn't belong here</li>\n          <li>It was spam</li>\n        </ul>\n        <p> There are endless hours of <a href=\"http://www.viki.com\">fun on Viki</a>, so we hope you find another video to keep you entertained!\"</p>\n      </div>\n\n    </div>\n  </div>\n\n\n\
+        </div>\n\
+        </body>\n\
+        </html>\n"
     http_version: 
   recorded_at: Wed, 13 Jun 2012 16:31:58 GMT
-- request:
+- request: 
     method: post
     uri: http://vikiping.com/oauth/token?client_id=dc363b39f32aebbccbd5c80278e171d1e2a95a2582cef9ddad1c690a2cb4c652&client_secret=4a1d38d8a1afbc12167e8471e0874c68f893d416f4aee623cb280f18fd0c072e&grant_type=client_credentials
-    body:
+    body: 
       encoding: US-ASCII
-      string: ''
+      string: ""
     headers: {}
-  response:
-    status:
+
+  response: 
+    status: 
       code: 200
       message: OK
-    headers:
-      Server:
+    headers: 
+      Server: 
       - nginx
-      Date:
+      Date: 
       - Wed, 13 Jun 2012 16:56:50 GMT
-      Content-Type:
+      Content-Type: 
       - application/json; charset=utf-8
-      Transfer-Encoding:
+      Transfer-Encoding: 
       - chunked
-      Pragma:
+      Pragma: 
       - no-cache
-      Cache-Control:
+      Cache-Control: 
       - no-store
-      X-Ua-Compatible:
+      X-Ua-Compatible: 
       - IE=Edge,chrome=1
-      Etag:
-      - ! '"b21a2076459a3760ebf0a90c2dc9fa0e"'
-      X-Request-Id:
+      Etag: 
+      - "\"b21a2076459a3760ebf0a90c2dc9fa0e\""
+      X-Request-Id: 
       - 1b609468b1e7c095b572fb17525fddcb
-      X-Runtime:
-      - '0.706092'
-      X-Rack-Cache:
+      X-Runtime: 
+      - "0.706092"
+      X-Rack-Cache: 
       - invalidate, pass
-      Via:
+      Via: 
       - 1.1 webcache1-cc (Cisco ACNS 5.5.19)
-      Connection:
+      Connection: 
       - Keep-Alive
-    body:
+    body: 
       encoding: US-ASCII
-      string: ! '{"access_token":"798f57820d04a6e1368b82cf9f97f3c0ab376d7686723420eacc133efdd8b2ff","expires_in":63072000,"scope":"public","token_type":"bearer"}'
+      string: "{\"access_token\":\"798f57820d04a6e1368b82cf9f97f3c0ab376d7686723420eacc133efdd8b2ff\",\"expires_in\":63072000,\"scope\":\"public\",\"token_type\":\"bearer\"}"
     http_version: 
   recorded_at: Wed, 13 Jun 2012 16:56:50 GMT
+- request: 
+    method: post
+    uri: http://viki.com/oauth/token?client_id=4bd5edd4ba26ac2f3ad9d204dc6359ea8a3ebe2c95b6bc1a9195c0ce5c57d392&client_secret=f3b796a1eb6e06458a502a89171a494a9160775ed4f4e9e0008c638f7e7e7d38&grant_type=client_credentials
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Thu, 14 Jun 2012 07:04:53 GMT
+      Content-Type: 
+      - application/json; charset=utf-8
+      Transfer-Encoding: 
+      - chunked
+      Connection: 
+      - keep-alive
+      Pragma: 
+      - no-cache
+      Cache-Control: 
+      - no-store
+      X-Ua-Compatible: 
+      - IE=Edge,chrome=1
+      Etag: 
+      - "\"0c430018580d2a56f18b5a42b9e7c74c\""
+      X-Request-Id: 
+      - 6d6c314b256d9a0f8ae6fb94fdbbd2dc
+      X-Runtime: 
+      - "0.465652"
+      X-Rack-Cache: 
+      - invalidate, pass
+    body: 
+      encoding: US-ASCII
+      string: "{\"access_token\":\"1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70\",\"expires_in\":86400,\"scope\":\"public\",\"token_type\":\"bearer\"}"
+    http_version: 
+  recorded_at: Thu, 14 Jun 2012 07:04:53 GMT
 recorded_with: VCR 2.2.1

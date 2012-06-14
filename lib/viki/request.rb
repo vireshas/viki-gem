@@ -12,16 +12,19 @@ module Viki
         :client_id => client_id,
         :client_secret => client_secret
       }
-      response = HTTParty.post('http://vikiping.com/oauth/token', query: params).body
-      json = MultiJson.load(response)
+      response = HTTParty.post('http://viki.com/oauth/token', query: params)
+      json = MultiJson.load(response.body)
       raise Viki::Error, json["error_description"] if json["error"]
       json["access_token"]
     end
 
-    #def request(http_method, path, query_params = {}, data_params = {} )
-    #  params = {}.merge!(query_params)
-    #  response = HTTParty.get()
-    #end
+    def request(path, query_params = {})
+      params = query_params.merge!({ })
+      response = HTTParty.get('http://viki.com/api/v3/' + path + '.json', :query => params)
+      json = MultiJson.load(response.body)
+      raise Viki::Error, json["message"] if json["status"] == 404
+      json
+    end
 
     #def paramify(path, params)
     #  URI.encode("#{path}/?#{params.map { |k, v| "#{k}=#{v}" }.join('&')}")
