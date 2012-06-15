@@ -22,6 +22,7 @@ describe "Viki" do
   end
 
   describe "API Interactions" do
+    let(:query_options) { { } }
     let(:client) do
       VCR.use_cassette "auth" do
         Viki.new(client_id, client_secret)
@@ -29,14 +30,12 @@ describe "Viki" do
     end
 
     describe "Movies" do
-
-      let(:query_options) { { } }
       let(:results) { client.movies(query_options) }
       let(:type) { :movie }
 
       describe "/movies" do
         it "should return a list Viki::Movie objects" do
-          VCR.use_cassette "movies_list" do
+          VCR.use_cassette "movies/list" do
             results.each do |movie|
               movie.should be_instance_of(Viki::Movie)
             end
@@ -71,6 +70,52 @@ describe "Viki" do
           end
         end
       end
+    end
+
+    describe "Series" do
+
+      describe "/series" do
+        let(:results) { client.series(query_options) }
+        let(:type) { :series }
+
+        it "should return a list of Viki::Series objects" do
+          VCR.use_cassette "series/list" do
+            results.each do |series|
+              series.should be_instance_of(Viki::Series)
+            end
+          end
+        end
+
+        it_behaves_like "API with parameter filters"
+      end
+
+      describe "/series/id" do
+
+        it "should return a Viki::Series object" do
+          VCR.use_cassette "series/show" do
+            series = client.series(8719)
+
+            series.id.should == 8719
+            series.title.should == "I love Lee Tae Ri"
+            series.description.should_not be_empty
+            series.created_at.should_not be_empty
+            series.uri.should_not be_empty
+            series.origin_country.should_not be_empty
+            series.image.should_not be_empty
+            series.episodes.should_not be_empty
+            series.subtitles.should_not be_empty
+            series.genres.should be_empty # empty for this item
+          end
+        end
+
+        it "should return a Viki::Series object with description in German if given language option de" do
+          VCR.use_cassette "series/language_option" do
+            series = client.series(50, { :language => 'de' })
+            series.description.should == 'Die koreanische Verfilmung des Manga "Hana Yori Dango" .'
+          end
+        end
+      end
+
     end
   end
 end
