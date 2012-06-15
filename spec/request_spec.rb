@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'filter_shared_examples_spec'
 
 describe "Viki" do
   let(:client_id) { '4bd5edd4ba26ac2f3ad9d204dc6359ea8a3ebe2c95b6bc1a9195c0ce5c57d392' }
@@ -29,22 +30,28 @@ describe "Viki" do
 
     describe "Movies" do
 
-      context "/movies" do
+      let(:query_options) { { } }
+      let(:results) { client.movies(query_options) }
+      let(:type) { :movie }
+
+      describe "/movies" do
         it "should return a list Viki::Movie objects" do
           VCR.use_cassette "movies_list" do
-            movies = client.movies
-            movies.each do |movie|
+            results.each do |movie|
               movie.should be_instance_of(Viki::Movie)
             end
           end
         end
+
+        it_behaves_like "API with parameter filters"
       end
 
-      context "/movies/:id" do
+      describe "/movies/:id" do
         it "should return a Viki::Movie object" do
           VCR.use_cassette "movie_show" do
-            movie = client.movies(70436)
+            movie = client.movie(70436)
 
+            #overtesting
             movie.id.should == 70436
             movie.title.should == "Muoi: The Legend of a Portrait"
             movie.description.should_not be_empty
@@ -53,14 +60,14 @@ describe "Viki" do
             movie.origin_country.should_not be_empty
             movie.image.should_not be_empty
             movie.formats.should_not be_empty
-            movie.subtitles.should be_empty #is actually empty in DB
+            movie.subtitles.should be_empty #is actually empty in this call
             movie.genres.should_not be_empty
           end
         end
 
         it "should return a Viki::Error object when resource not found" do
           VCR.use_cassette "movie_error" do
-            lambda { client.movies(50) }.should raise_error(Viki::Error, "The resource couldn't be found")
+            lambda { client.movie(50) }.should raise_error(Viki::Error, "The resource couldn't be found")
           end
         end
       end

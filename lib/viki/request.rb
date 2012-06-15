@@ -18,17 +18,12 @@ module Viki
       json["access_token"]
     end
 
-    def request(path, query_params = {})
-      params = query_params.merge!({ })
+    def request(path, params = {})
+      params.merge!({ :access_token => self.access_token })
       response = HTTParty.get('http://viki.com/api/v3/' + path + '.json', :query => params)
       json = MultiJson.load(response.body)
       raise Viki::Error, json["message"] if json["status"] == 404
       json
     end
-
-    #def paramify(path, params)
-    #  URI.encode("#{path}/?#{params.map { |k, v| "#{k}=#{v}" }.join('&')}")
-    #end
-
   end
 end

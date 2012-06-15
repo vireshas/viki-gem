@@ -15,17 +15,17 @@ module Viki
 
     include Viki::Request
 
-    def movies(id = nil)
-      if id
-        Movie.new(request("movies/#{id}", { :access_token => self.access_token }))
-      else
-        response = request("movies", { :access_token => self.access_token })
-        movie_list = []
-        response["response"].each { |movie| movie_list << Movie.new(movie) }
-        movie_list
-      end
-
+    def movies(params = {})
+      #hack until API is fixed, then return API error message
+      raise Viki::Error, "A watchable_in parameter is required when using the platform parameter" if params[:platform] && !params[:watchable_in]
+      response = request("movies", params)
+      movie_list = []
+      response["response"].each { |movie| movie_list << Movie.new(movie) }
+      movie_list
     end
 
+    def movie(id, params = {})
+      Movie.new(request("movies/#{id}", params))
+    end
   end
 end
