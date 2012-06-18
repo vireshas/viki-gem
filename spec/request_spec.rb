@@ -318,7 +318,6 @@ describe "Viki" do
           end
         end
 
-
         context "when filtering with platform" do
           let(:query_options) { { :platform => 'mobile' } }
           it "should return movies available in selected platform when given watchable_in and platform parameters" do
@@ -329,7 +328,6 @@ describe "Viki" do
           end
         end
 
-
         context "when requesting artist name in different language" do
           it "should return artist name in parameter given" do
             query_options.merge!({ :language => 'ko' })
@@ -338,10 +336,7 @@ describe "Viki" do
             end
           end
         end
-
       end
-
-      #how to test for the optional language parameter without UTF-8 whining?
 
       describe "/artist/id" do
 
@@ -357,7 +352,71 @@ describe "Viki" do
           end
         end
       end
+
+      describe "/artist/id/music_videos" do
+
+        let(:id) { 834 }
+        let(:results) { client.artist_music_videos(id, query_options) }
+        let(:type) { :artist_music_videos }
+
+        it "should return a list of Viki::MusicVideo objects" do
+          VCR.use_cassette "artist_music_videos/list" do
+            results.each do |music_video|
+              music_video.should be_instance_of(Viki::MusicVideo)
+            end
+          end
+        end
+
+        context "when filtering with subtitle_language" do
+          let(:query_options) { { :subtitle_language => 'fr' } }
+          it "should return movies with requested subtitle > 90% completion, when given a subtitle_language parameter" do
+            VCR.use_cassette "#{type}/subtitle_language_filter" do
+              results.each do |m|
+                m.subtitles["fr"].should > 90
+              end
+            end
+          end
+        end
+
+        it "should raise an error when platform parameter is given without watchable_in" do
+          VCR.use_cassette "artist_music_videos/platform_filter_error" do
+            query_options.merge!({ :platform => 'mobile' })
+            lambda { results }.should raise_error(Viki::Error)
+          end
+        end
+
+        context "when filtering with watchable_in" do
+          let(:query_options) { { :watchable_in => 'sg' } }
+          it "should return movies watchable_in selected country when given a watchable_in parameter" do
+            VCR.use_cassette "#{type}/watchable_in_filter" do
+              results.should_not be_empty
+            end
+          end
+        end
+
+        context "when filtering with origin_country" do
+          let(:query_options) { { :origin_country => 'kr' } }
+          it "should return movies from a specific country when given a origin_country parameter" do
+            VCR.use_cassette "#{type}/origin_country_filter" do
+              results.each do |m|
+                m.origin_country.should == 'Korea'
+              end
+            end
+          end
+        end
+
+        context "when filtering with platform" do
+          let(:query_options) { { :platform => 'mobile' } }
+          it "should return movies available in selected platform when given watchable_in and platform parameters" do
+            query_options.merge!({ :watchable_in => 'sg' })
+            VCR.use_cassette "#{type}/platform_filter" do
+              results.should_not be_empty
+            end
+          end
+        end
+      end
     end
+
 
     describe "Coming Soon" do
 
