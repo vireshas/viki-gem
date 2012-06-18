@@ -4,6 +4,7 @@ require 'viki/movie'
 require 'viki/series'
 require 'viki/episode'
 require 'viki/newscast'
+require 'viki/music_video'
 
 module Viki
   class Client
@@ -21,6 +22,7 @@ module Viki
     include Viki::Client::Movies
     include Viki::Client::Series
     include Viki::Client::Newscast
+    include Viki::Client::Music_video
 
   end
 end

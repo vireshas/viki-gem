@@ -1,0 +1,91 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://viki.com/api/v3/music_videos.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70&genre=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 301
+      message: Moved Permanently
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Mon, 18 Jun 2012 06:42:01 GMT
+      Content-Type: 
+      - text/plain
+      Connection: 
+      - keep-alive
+      Location: 
+      - http://www.viki.com/api/v3/music_videos.json?genre=2&access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+      X-Rack-Cache: 
+      - miss
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "1643738163"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "moved to "
+    http_version: 
+  recorded_at: Mon, 18 Jun 2012 06:42:01 GMT
+- request: 
+    method: get
+    uri: http://www.viki.com/api/v3/music_videos.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70&genre=2
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Mon, 18 Jun 2012 06:42:02 GMT
+      Content-Type: 
+      - application/json; charset=utf-8
+      Connection: 
+      - keep-alive
+      Cache-Control: 
+      - public, max-age=3600
+      Expires: 
+      - Mon, 18 Jun 2012 07:42:02 GMT
+      X-Ua-Compatible: 
+      - IE=Edge,chrome=1
+      Etag: 
+      - "\"f9f13ee06c7d57c176c6b8fb790a5387\""
+      X-Request-Id: 
+      - 6aafab5a6884d8b313b49e5edf67661c
+      X-Runtime: 
+      - "0.052249"
+      X-Content-Digest: 
+      - 1367360a2f86e5054a55a93a8b5cd999913c98b4
+      X-Rack-Cache: 
+      - miss, ignore, store
+      Content-Length: 
+      - "64"
+      X-Varnish: 
+      - "157964970"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "{\"count\":0,\"pagination\":{\"previous\":\"\",\"next\":\"\"},\"response\":[]}"
+    http_version: 
+  recorded_at: Mon, 18 Jun 2012 06:42:02 GMT
+recorded_with: VCR 2.2.2

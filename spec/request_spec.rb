@@ -215,5 +215,37 @@ describe "Viki" do
         end
       end
     end
+
+    describe "Music_videos" do
+
+      describe "/music_videos" do
+        let(:results) { client.music_videos(query_options) }
+        let(:type) { :music_video }
+
+        it "should return a list of Viki::Music_video objects" do
+          VCR.use_cassette "music_videos/list" do
+            results.each do |music_video|
+              music_video.should be_instance_of(Viki::Music_video)
+            end
+          end
+        end
+
+        it_behaves_like "API with parameter filters"
+      end
+
+      describe "/music_videos/id" do
+
+        it "should return a Viki::Music_video object" do
+          VCR.use_cassette "music_video/show", :record => :new_episodes do
+            music_video = client.music_video(71584)
+
+            music_video.id.should == 71584
+            music_video.title.should == "I Feel Like I'm Dying"
+            music_video.uri.should_not be_empty
+            music_video.image.should_not be_empty
+          end
+        end
+      end
+    end
   end
 end
