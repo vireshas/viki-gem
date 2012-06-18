@@ -1,4 +1,13 @@
+A Viki wrapper gem for the Viki V3 API. This gem is currently under active development.
 
+Full documentation for API V3 may be found at [dev.viki.com](http://dev.viki.com/api "Viki API V3 Docs")
+
+Endpoints
+----------
+
+Here are a full list of functions available.
+
+```
 client.movies
 client.movie(:id)
   client.movie.subtitles({id => 5, subtitle => en})
@@ -31,8 +40,7 @@ client.artist(:id)
 
 client.featured
 
-# UGLLLLYYYYY
 client.coming_soon
 client.coming_soon_movies
 client.coming_soon_series
-
+```
