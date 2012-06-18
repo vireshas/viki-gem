@@ -5,6 +5,7 @@ require 'viki/series'
 require 'viki/episode'
 require 'viki/newscast'
 require 'viki/music_video'
+require 'viki/artist'
 
 module Viki
   class Client
@@ -22,7 +23,8 @@ module Viki
     include Viki::Client::Movies
     include Viki::Client::Series
     include Viki::Client::Newscast
-    include Viki::Client::Music_video
+    include Viki::Client::MusicVideo
+    include Viki::Client::Artist
 
   end
 end

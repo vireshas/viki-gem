@@ -2,7 +2,7 @@ module Viki
   class Client
     module Newscast
       def newscasts(params={ })
-        response = request("series", params)
+        response = request("newscasts", params)
         newscast_list = []
         response["response"].each { |newscast| newscast_list << Viki::Newscast.new(newscast) }
         newscast_list

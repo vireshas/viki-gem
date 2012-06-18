@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'spec_helper'
 require 'filter_shared_examples_spec'
 
@@ -210,14 +212,12 @@ describe "Viki" do
         let(:type) { :newscast }
 
         it "should return a list of Viki::Newscast objects" do
-          VCR.use_cassette "newscasts/list" do
+          VCR.use_cassette "newscast/list" do
             results.each do |newscast|
               newscast.should be_instance_of(Viki::Newscast)
             end
           end
         end
-
-        it_behaves_like "API with parameter filters"
       end
 
       describe "/newscasts/id" do
@@ -231,22 +231,30 @@ describe "Viki" do
             newscast.description.should_not be_empty
             newscast.uri.should_not be_empty
             newscast.image.should_not be_empty
+            newscast.newsclips.should_not be_empty
           end
         end
       end
     end
 
-    describe "Music_videos" do
+    describe "MusicVideos" do
 
       describe "/music_videos" do
         let(:results) { client.music_videos(query_options) }
         let(:type) { :music_video }
 
-        it "should return a list of Viki::Music_video objects" do
+        it "should return a list of Viki::MusicVideo objects" do
           VCR.use_cassette "music_videos/list" do
             results.each do |music_video|
-              music_video.should be_instance_of(Viki::Music_video)
+              music_video.should be_instance_of(Viki::MusicVideo)
             end
+          end
+        end
+
+        it "should raise an error when platform parameter is given without watchable_in" do
+          VCR.use_cassette "music_videos/platform_filter_error" do
+            query_options.merge!({ :platform => 'mobile' })
+            lambda { results }.should raise_error(Viki::Error)
           end
         end
 
@@ -255,7 +263,7 @@ describe "Viki" do
 
       describe "/music_videos/id" do
 
-        it "should return a Viki::Music_video object" do
+        it "should return a Viki::MusicVideo object" do
           VCR.use_cassette "music_video/show", :record => :new_episodes do
             music_video = client.music_video(71584)
 
@@ -263,6 +271,88 @@ describe "Viki" do
             music_video.title.should == "I Feel Like I'm Dying"
             music_video.uri.should_not be_empty
             music_video.image.should_not be_empty
+          end
+        end
+      end
+    end
+
+    describe "Artist" do
+
+      describe "/artist" do
+        let(:results) { client.artists(query_options) }
+        let(:type) { :artist }
+
+        it "should return a list of Viki::Artist objects" do
+          VCR.use_cassette "artists/list" do
+            results.each do |artist|
+              artist.should be_instance_of(Viki::Artist)
+            end
+          end
+        end
+
+        it "should raise an error when platform parameter is given without watchable_in" do
+          VCR.use_cassette "artists/platform_filter_error" do
+            query_options.merge!({ :platform => 'mobile' })
+            lambda { results }.should raise_error(Viki::Error)
+          end
+        end
+
+        context "when filtering with watchable_in" do
+          let(:query_options) { { :watchable_in => 'sg' } }
+          it "should return movies watchable_in selected country when given a watchable_in parameter" do
+            VCR.use_cassette "#{type}/watchable_in_filter" do
+              results.should_not be_empty
+            end
+          end
+        end
+
+        context "when filtering with origin_country" do
+          let(:query_options) { { :origin_country => 'kr' } }
+          it "should return movies from a specific country when given a origin_country parameter" do
+            VCR.use_cassette "#{type}/origin_country_filter" do
+              results.each do |m|
+                m.origin_country.should == 'Korea'
+              end
+            end
+          end
+        end
+
+
+        context "when filtering with platform" do
+          let(:query_options) { { :platform => 'mobile' } }
+          it "should return movies available in selected platform when given watchable_in and platform parameters" do
+            query_options.merge!({ :watchable_in => 'sg' })
+            VCR.use_cassette "#{type}/platform_filter" do
+              results.should_not be_empty
+            end
+          end
+        end
+
+
+        context "when requesting artist name in different language" do
+          it "should return artist name in parameter given" do
+            query_options.merge!({ :language => 'ko' })
+            VCR.use_cassette "#{type}/language_filter" do
+              results.last.name.should == "윤서진"
+            end
+          end
+        end
+
+      end
+
+      #how to test for the optional language parameter without UTF-8 whining?
+
+      describe "/artist/id" do
+
+        it "should return a Viki::Artist object" do
+          VCR.use_cassette "artist/show", :record => :new_episodes do
+            artist = client.artist(8615)
+
+            artist.id.should == 8615
+            artist.name.should == "Michelle Branch"
+            artist.uri.should_not be_empty
+            artist.image.should_not be_empty
+            artist.origin_country.should == "United States"
           end
         end
       end

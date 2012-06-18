@@ -1,6 +1,5 @@
 module Viki
-  class MusicVideo
-
+  class Artist
     def initialize(json)
       @json = json
     end

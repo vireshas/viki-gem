@@ -1,0 +1,91 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://viki.com/api/v3/artists/8615.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 301
+      message: Moved Permanently
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Mon, 18 Jun 2012 08:03:42 GMT
+      Content-Type: 
+      - text/plain
+      Connection: 
+      - keep-alive
+      Location: 
+      - http://www.viki.com/api/v3/artists/8615.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+      X-Rack-Cache: 
+      - miss
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "947084162"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "moved to "
+    http_version: 
+  recorded_at: Mon, 18 Jun 2012 08:03:43 GMT
+- request: 
+    method: get
+    uri: http://www.viki.com/api/v3/artists/8615.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Mon, 18 Jun 2012 08:03:44 GMT
+      Content-Type: 
+      - application/json; charset=utf-8
+      Connection: 
+      - keep-alive
+      Cache-Control: 
+      - public, max-age=3600
+      Expires: 
+      - Mon, 18 Jun 2012 09:03:44 GMT
+      X-Ua-Compatible: 
+      - IE=Edge,chrome=1
+      Etag: 
+      - "\"a834183fdd481c77bca8329ad81595b4\""
+      X-Request-Id: 
+      - 77ef3da57c4e7be89393028e41509420
+      X-Runtime: 
+      - "0.502702"
+      X-Content-Digest: 
+      - 0706583c5bdbb607540fd0992a257c346c383a93
+      X-Rack-Cache: 
+      - miss, ignore, store
+      Content-Length: 
+      - "944"
+      X-Varnish: 
+      - "1273592867"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "{\"id\":8615,\"name\":\"Michelle Branch\",\"description\":\"Michelle Branch is an American singer-songwriter, guitarist and actress known for her folksy country pop songs. Born July 2, 1983, in Phoenix, Arizona, Michelle was part of the country duo The Wreckers with country singer Jessica Harp from 2005 to 2007 but disbanded to continue working as a solo artist. She won a Grammy Award in 2003. Watch the music videos of her hit songs \\u201cGoodbye to You,\\u201d \\u201cAre You Happy Now?\\u201d  \\u201cEverywhere\\u201d and \\u201cAll You Wanted\\u201d.\",\"created_at\":\"May 21, 2012 19:04\",\"uri\":\"http://www.viki.com/api/v3/artists/8615.json\",\"image\":\"http://m0.viki.com/aHR0cDovL2MxLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvODYxNS84ODIxMWJhYmNhYzc3YjNhMGM1MDBlMWQ3ZjU3YjNkOTg1OTUxNWRkLmpwZw==\",\"origin_country\":\"United States\",\"roles\":[\"Musician\"],\"music_videos\":{\"count\":4,\"uri\":\"http://www.viki.com/api/v3/artists/8615/music_videos.json\"}}"
+    http_version: 
+  recorded_at: Mon, 18 Jun 2012 08:03:44 GMT
+recorded_with: VCR 2.2.2
