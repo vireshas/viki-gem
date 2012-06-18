@@ -239,6 +239,7 @@ describe "Viki" do
 
     describe "MusicVideos" do
 
+
       describe "/music_videos" do
         let(:results) { client.music_videos(query_options) }
         let(:type) { :music_video }
@@ -353,6 +354,44 @@ describe "Viki" do
             artist.uri.should_not be_empty
             artist.image.should_not be_empty
             artist.origin_country.should == "United States"
+          end
+        end
+      end
+    end
+
+    describe "Coming Soon" do
+
+      describe "/coming_soon" do
+        it "should return a list of Viki::ComingSoon objects" do
+          VCR.use_cassette "coming_soon" do
+            results_list = client.coming_soon
+            results_list.each do |cm|
+              cm.should be_instance_of(Viki::ComingSoon)
+            end
+          end
+        end
+
+        describe "/coming_soon/movies" do
+          it "should return a list of Viki::ComingSoon objects of type 'movie'" do
+            VCR.use_cassette "coming_soon/movies" do
+              results_list = client.coming_soon_movies
+              results_list.each do |cm|
+                cm.should be_instance_of(Viki::ComingSoon)
+                cm.type.should == "movie"
+              end
+            end
+          end
+        end
+
+        describe "coming_soon/series" do
+          it "should return a list of Viki::ComingSoon objects of type 'series'" do
+            VCR.use_cassette "coming_soon/series" do
+              results_list = client.coming_soon_series
+              results_list.each do |cm|
+                cm.should be_instance_of(Viki::ComingSoon)
+                cm.type.should == "series"
+              end
+            end
           end
         end
       end

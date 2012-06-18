@@ -5,7 +5,11 @@ require 'viki/series'
 require 'viki/episode'
 require 'viki/newscast'
 require 'viki/music_video'
+<<<<<<< HEAD
 require 'viki/artist'
+=======
+require 'viki/coming_soon'
+>>>>>>> Added coming_soon methods.
 
 module Viki
   class Client
@@ -25,6 +29,7 @@ module Viki
     include Viki::Client::Newscast
     include Viki::Client::MusicVideo
     include Viki::Client::Artist
+    include Viki::Client::ComingSoon
 
   end
 end

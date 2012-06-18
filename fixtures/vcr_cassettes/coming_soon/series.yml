@@ -1,0 +1,91 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://viki.com/api/v3//coming_soon/series.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 301
+      message: Moved Permanently
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Mon, 18 Jun 2012 08:44:52 GMT
+      Content-Type: 
+      - text/plain
+      Connection: 
+      - keep-alive
+      Location: 
+      - http://www.viki.com/api/v3//coming_soon/series.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+      X-Rack-Cache: 
+      - miss
+      Content-Length: 
+      - "9"
+      X-Varnish: 
+      - "1913805940"
+      Age: 
+      - "0"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "moved to "
+    http_version: 
+  recorded_at: Mon, 18 Jun 2012 08:44:52 GMT
+- request: 
+    method: get
+    uri: http://www.viki.com/api/v3//coming_soon/series.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body: 
+      encoding: US-ASCII
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - nginx
+      Date: 
+      - Mon, 18 Jun 2012 08:44:53 GMT
+      Content-Type: 
+      - application/json; charset=utf-8
+      Connection: 
+      - keep-alive
+      Cache-Control: 
+      - public, max-age=3600
+      Expires: 
+      - Mon, 18 Jun 2012 09:35:30 GMT
+      X-Ua-Compatible: 
+      - IE=Edge,chrome=1
+      Etag: 
+      - "\"9cbac8625aad6264d5cf7c3cd5ad356e\""
+      X-Request-Id: 
+      - b9981377f0da25f8637793c756f8f788
+      X-Runtime: 
+      - "0.340851"
+      X-Content-Digest: 
+      - be08425d41764013ae93dbd355d2ff7616482973
+      X-Rack-Cache: 
+      - fresh
+      Content-Length: 
+      - "9245"
+      X-Varnish: 
+      - "1034260667"
+      Age: 
+      - "563"
+      Via: 
+      - 1.1 varnish
+    body: 
+      encoding: US-ASCII
+      string: "{\"count\":1801,\"pagination\":{\"previous\":\"\",\"next\":\"http://www.viki.com/api/v3/coming_soon/series.json?page=2\"},\"response\":[{\"id\":8940,\"title\":\"Raeng Ngao (2012)\",\"description\":null,\"created_at\":\"June 18, 2012 04:33\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Thailand\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8933,\"title\":\"When Love Walked In\",\"description\":\"The drama tells the story of how Qin Yu Jiang (played by Calvin Chen) was under orders to look for the chairman's long-lost granddaughter, which he found to be Shen Ya Yin (played by Victoria Song) who is treated like Cinderella in her aunt's home. And what happens next is a romantic love story that makes people laugh and cry.\",\"created_at\":\"June 17, 2012 15:10\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Taiwan\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8925,\"title\":\"Beloved\",\"description\":\"A married couple of three years look back on their marriage when past lovers approach them.\",\"created_at\":\"June 17, 2012 05:21\",\"genres\":[{\"id\":6,\"name\":\"Comedy\"}],\"origin_country\":\"Korea\",\"image\":\"http://m2.viki.com/aHR0cDovL2MxLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvODkyNS8xNTAwNWIzMjMxYmY1YjFkNGM0OTlmNGU3MDVkNTY4OTI4NDk1MmQ2LmpwZw==\"},{\"id\":8917,\"title\":\"sila\",\"description\":null,\"created_at\":\"June 16, 2012 16:29\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Turkey\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8916,\"title\":\"roswell\",\"description\":\"tv series\",\"created_at\":\"June 16, 2012 16:17\",\"genres\":[{\"id\":19,\"name\":\"SciFi & Fantasy\"}],\"origin_country\":\"United States\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8913,\"title\":\"drama\",\"description\":null,\"created_at\":\"June 16, 2012 12:53\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8911,\"title\":\"FULL HOUSE\",\"description\":\"Han Ji Eun is a naive writer who got swindled out of everything she owned including her house by her best friends. Stranded in China, She managed to borrow money from an actor Lee Young Jae to return to Korea. On her return, she found out that her house was bought by Lee Young Jae. In an attempt to get her possessions back, she entered in a contract marriage with Young Jae for one year.\",\"created_at\":\"June 16, 2012 10:36\",\"genres\":[{\"id\":18,\"name\":\"Romance\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL2MxLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvODkxMS8xMmUwY2QzMjNiM2RkMzhiZjA2NWRkOGFlMzdhNTYyYzBmYWQxZTY1LmpwZw==\"},{\"id\":8909,\"title\":\"sila\",\"description\":null,\"created_at\":\"June 16, 2012 08:16\",\"genres\":[],\"origin_country\":\"Turkey\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8906,\"title\":\"nth korean\",\"description\":null,\"created_at\":\"June 16, 2012 02:21\",\"genres\":[],\"origin_country\":\"North Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8889,\"title\":\"Rubi\",\"description\":null,\"created_at\":\"June 14, 2012 18:46\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Mexico\",\"image\":\"http://m1.viki.com/aHR0cDovL2MwLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvODg4OS9kZjhkYWVjOTA2ZTliMTY5NDZkYmI4NTYxNzczNjlhYjE4ZWVmMmFhLmpwZw==\"},{\"id\":8881,\"title\":\"Five Fingers\",\"description\":\"\\u201cFive Fingers\\u201d is the story about how some troubled young adults overcome their past scars and make efforts to find their dreams and love. Joo Ji Hoon will play a talented pianist, who struggles with an unfortunate family situation.\",\"created_at\":\"June 13, 2012 16:33\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8874,\"title\":\"English\",\"description\":null,\"created_at\":\"June 13, 2012 00:07\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Various\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8872,\"title\":\"goong\",\"description\":\"a retell story of cinderella\",\"created_at\":\"June 12, 2012 23:15\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8871,\"title\":\"One Lucky Family\",\"description\":null,\"created_at\":\"June 12, 2012 21:24\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Mexico\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8869,\"title\":\"Still Have Time to Love You\",\"description\":\"upcoming Hong Kong supernatural television drama\",\"created_at\":\"June 12, 2012 17:49\",\"genres\":[],\"origin_country\":\"Hong Kong\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8867,\"title\":\"I love You So Much \",\"description\":\"The story centers around makeup products and the makeup artists who make women beautiful. \",\"created_at\":\"June 12, 2012 02:29\",\"genres\":[{\"id\":18,\"name\":\"Romance\"}],\"origin_country\":\"Taiwan\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8863,\"title\":\"[\\ucd94\\uc801\\uc790 THE CHASER]\",\"description\":null,\"created_at\":\"June 11, 2012 21:57\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8859,\"title\":\"Love In The Wind\",\"description\":\"A recent music school graduate applied for a teaching position in a remote village to subsidize her goal of studying abroad. During her time there, she discovered her love for teaching and love for two men: a free-spirited artist and a former plastic surgeon. \\r\\n\\r\\n\",\"created_at\":\"June 11, 2012 11:34\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Taiwan\",\"image\":\"http://m2.viki.com/aHR0cDovL2MwLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvODg1OS83NjFhNmJkZWQ0NzVhYTI1YWQ2MzBiNTY0YWFmN2U2MWM3ZGEwNmUzLmpwZw==\"},{\"id\":8852,\"title\":\"I Need Romance 2012 \",\"description\":\"A story about the work and love of city women.\\r\\n\\r\\nIn this drama, Jung Yoo Mi gets entangled in a love triangle between her longtime boyfriend Yoon Seok Hyun (Lee Jin Wook) and her new honey Shin Ji Hoon (Kim Ji Suk).\\r\\n\\r\\nThis is the 2nd season of \\u2018I Need Romance\\u2018 but with different cast and characters.\",\"created_at\":\"June 10, 2012 20:22\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8843,\"title\":\"Football\",\"description\":\"International Football Soccer\",\"created_at\":\"June 09, 2012 21:10\",\"genres\":[{\"id\":20,\"name\":\"Sports\"}],\"origin_country\":\"Malaysia\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8842,\"title\":\"Which star are you from?\",\"description\":\"Seung Hee, after losing his girlfriend in a tragic accident, left for 3 years. When he came back, he sought to make a film in a rural area. Someone caught his eye \\u2013 Bok Shil, who looks exactly like his deceased girlfriend, Hye Soo. Seung Hee followed Bok Shil in order to get some answers.\",\"created_at\":\"June 09, 2012 21:03\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8839,\"title\":\"Love In The Wind\",\"description\":\"A recent music school graduate applied for a teaching position in a remote village to subsidize her goal of studying abroad. During her time there, she discovered her love for teaching and love for two men: a free-spirited artist and a former plastic surgeon.\\r\\nSource: http://wiki.d-addicts.com\",\"created_at\":\"June 09, 2012 16:38\",\"genres\":[{\"id\":18,\"name\":\"Romance\"}],\"origin_country\":\"Taiwan\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8833,\"title\":\"Star King\",\"description\":null,\"created_at\":\"June 09, 2012 10:01\",\"genres\":[{\"id\":21,\"name\":\"Variety Show\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8830,\"title\":\"Bicha\",\"description\":\"Adding imagination to the record with the chronicle 'a bicha has risen in the skies of Chosun', \\\"Bicha\\\" is about the process of isolated youths who soar into the skies.\",\"created_at\":\"June 09, 2012 03:38\",\"genres\":[{\"id\":9,\"name\":\"Drama\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"},{\"id\":8827,\"title\":\"roman\",\"description\":\"femeie 48 ani\",\"created_at\":\"June 08, 2012 17:03\",\"genres\":[{\"id\":18,\"name\":\"Romance\"}],\"origin_country\":\"Korea\",\"image\":\"http://m0.viki.com/aHR0cDovL3d3dy52aWtpLmNvbS9pbWFnZXMvY2hhbm5lbF9kZWZhdWx0X21lZGl1bS5wbmc=\"}]}"
+    http_version: 
+  recorded_at: Mon, 18 Jun 2012 08:44:53 GMT
+recorded_with: VCR 2.2.1
