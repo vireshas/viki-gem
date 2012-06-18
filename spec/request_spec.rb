@@ -42,6 +42,13 @@ describe "Viki" do
           end
         end
 
+        it "should raise an error when platform parameter is given without watchable_in" do
+          VCR.use_cassette "movie/platform_filter_error" do
+            query_options.merge!({ :platform => 'mobile' })
+            lambda { results }.should raise_error(Viki::Error)
+          end
+        end
+
         it_behaves_like "API with parameter filters"
       end
 
@@ -106,6 +113,14 @@ describe "Viki" do
           end
         end
 
+
+        it "should raise an error when platform parameter is given without watchable_in" do
+          VCR.use_cassette "series/platform_filter_error" do
+            query_options.merge!({ :platform => 'mobile' })
+            lambda { results }.should raise_error(Viki::Error)
+          end
+        end
+
         it_behaves_like "API with parameter filters"
       end
 
@@ -147,6 +162,39 @@ describe "Viki" do
         end
       end
 
+    end
+
+    describe "Newscasts" do
+
+      describe "/newscasts" do
+        let(:results) { client.newscasts(query_options) }
+        let(:type) { :newscast }
+
+        it "should return a list of Viki::Newscast objects" do
+          VCR.use_cassette "newscasts/list" do
+            results.each do |newscast|
+              newscast.should be_instance_of(Viki::Newscast)
+            end
+          end
+        end
+
+        it_behaves_like "API with parameter filters"
+      end
+
+      describe "/newscasts/id" do
+
+        it "should return a Viki::Newscast object" do
+          VCR.use_cassette "newscast/show", :record => :new_episodes do
+            newscast = client.newscast(1659)
+
+            newscast.id.should == 1659
+            newscast.title.should == "Entertainment News - Korea "
+            newscast.description.should_not be_empty
+            newscast.uri.should_not be_empty
+            newscast.image.should_not be_empty
+          end
+        end
+      end
     end
   end
 end

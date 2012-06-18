@@ -54,13 +54,6 @@ shared_examples_for "API with parameter filters" do
         results.should_not be_empty
       end
     end
-
-
-    it "should raise an error when platform parameter is given without watchable_in" do
-      VCR.use_cassette "#{type}/platform_filter_error" do
-        lambda { results }.should raise_error(Viki::Error)
-      end
-    end
   end
 end
 
