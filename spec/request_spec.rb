@@ -136,6 +136,17 @@ describe "Viki" do
         end
       end
 
+      describe "series/:id/episodes" do
+        it "returns a list of Viki::Episode objects for a particular series" do
+          VCR.use_cassette "series/episodes" do
+            episodes = client.series_episodes(50)
+            episodes.each do |e|
+              e.should be_instance_of(Viki::Episode)
+            end
+          end
+        end
+      end
+
     end
   end
 end

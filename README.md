@@ -6,10 +6,10 @@ client.movie(:id)
 
 client.series
 client.series(:id)
-  client.series_subtitles(id, lang)
-  client.series_hardsubs(id)
   client.series_episodes(series => id)
   client.series_episode(id, series => id)
+  client.series_episode_subtitle(:episode_id, :series_id, :lang_code)
+  client.series_episode_hardsubs(:episode_id, :series_id)
 
 client.music_videos
 client.music_video(:id)
@@ -35,3 +35,4 @@ client.featured
 client.coming_soon
 client.coming_soon_movies
 client.coming_soon_series
+

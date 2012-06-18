@@ -16,6 +16,13 @@ module Viki
           series_list
         end
       end
+
+      def series_episodes(id)
+          response = request("series/#{id}/episodes")
+          episode_list = []
+          response["response"].each { |episode| episode_list << Episode.new(episode) }
+          episode_list
+      end
     end
   end
 end

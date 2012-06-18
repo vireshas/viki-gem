@@ -2,6 +2,7 @@ require 'httparty'
 require 'viki/request'
 require 'viki/movie'
 require 'viki/series'
+require 'viki/episode'
 
 module Viki
   class Client
