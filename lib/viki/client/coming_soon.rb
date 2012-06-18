@@ -20,9 +20,9 @@ module Viki
 
       def process_coming_soon_types(items, type=nil)
         results = []
-        items.each do |i|
-          i["type"] == type if type
-          Viki::ComingSoon.new(i)
+        items.each do |item|
+          item.merge!({ "type" => type }) if type
+          results << Viki::ComingSoon.new(item)
         end
         results
       end

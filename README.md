@@ -10,7 +10,7 @@ Here are a full list of functions available.
 ```
 client.movies
 client.movie(id)
-  client.movie_subtitles(id, lang})
+  client.movie_subtitles(id, lang)
   client.movie_hardsubs(id)
 
 client.series
@@ -38,7 +38,7 @@ client.artists
 client.artist(id)
   client.artist_music_videos(id)
 
-client.featured
+client.featured({})
 
 client.coming_soon
 client.coming_soon_movies
