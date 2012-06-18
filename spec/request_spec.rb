@@ -162,6 +162,25 @@ describe "Viki" do
         end
       end
 
+      describe "/series/:id/episodes/:id" do
+        it "returns a Viki::Episode object for a particular episode when given both series and episode id" do
+          VCR.use_cassette "series/episode+id" do
+            episode = client.series_episode(509, :series => 50)
+
+            episode.id.should == 509
+            episode.title.should == "Episode 1"
+            episode.number.should == 1
+            episode.description.should be_nil
+            episode.image.should_not be_empty
+            episode.created_at.should_not be_empty
+            episode.series.should_not be_empty
+            episode.uri.should_not be_empty
+            episode.series.should_not be_empty
+            episode.formats.should_not be_empty
+            episode.language_code.should_not be_empty
+          end
+        end
+      end
     end
 
     describe "Newscasts" do
