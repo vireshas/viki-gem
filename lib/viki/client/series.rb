@@ -24,9 +24,17 @@ module Viki
         episode_list
       end
 
-      def series_episode(episode_id, params = { })
-        response = request("series/#{params[:series]}/episodes/#{episode_id}")
+      def series_episode(episode_id, args = { })
+        response = request("series/#{args[:series]}/episodes/#{episode_id}")
         Episode.new(response)
+      end
+
+      def series_episode_subtitles(episode_id, args = {})
+        request("series/#{args[:series]}/episodes/#{episode_id}/subtitles/#{args[:lang]}")
+      end
+
+      def series_episode_hardsubs(episode_id, args={ })
+        request("series/#{args[:series]}/episodes/#{episode_id}/hardsubs")
       end
     end
   end
