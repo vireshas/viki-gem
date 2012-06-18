@@ -277,6 +277,27 @@ describe "Viki" do
       end
     end
 
+    describe "/music_video/:id/subtitles/:lang" do
+      it "should return a subtitle JSON string" do
+        VCR.use_cassette "music_videos/subtitles" do
+          subtitles = client.music_video_subtitles(538, 'en')
+          subtitles["language_code"].should == "en"
+          subtitles["subtitles"].should_not be_empty
+        end
+      end
+    end
+
+    #none available yet
+    #describe "/music_video/:id/hardsubs" do
+    #  it "should return a list of video qualities with links to hardsubbed videos" do
+    #    VCR.use_cassette "movies/hardsubs" do
+    #      hardsubs = client.music_video_hardsubs(64135)
+    #      hardsubs["res-240p"].should_not be_empty
+    #      hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4'
+    #    end
+    #  end
+    #end
+
     describe "Artist" do
 
       describe "/artist" do

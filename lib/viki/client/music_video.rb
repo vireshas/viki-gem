@@ -12,6 +12,15 @@ module Viki
       def music_video(id, params = { })
         Viki::MusicVideo.new(request("music_videos/#{id}", params))
       end
+
+      def music_video_subtitles(id, lang)
+        request("music_videos/#{id}/subtitles/#{lang}")
+      end
+
+      #no hardsubbed music videos yet
+      #def music_video_hardsubs(id)
+      #  request("music_videos/#{id}/hardsubs")
+      #end
     end
   end
 end
