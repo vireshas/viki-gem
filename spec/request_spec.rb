@@ -70,6 +70,26 @@ describe "Viki" do
           end
         end
       end
+
+      describe "/movies/:id/subtitles/:lang" do
+        it "should return a subtitle JSON string" do
+          VCR.use_cassette "movies/subtitles" do
+            subtitles = client.movie_subtitles(21713, 'en')
+            subtitles["language_code"].should == "en"
+            subtitles["subtitles"].should_not be_empty
+          end
+        end
+      end
+
+      describe "movies/:id/hardsubs" do
+        it "should return a list of video qualities with links to hardsubbed videos" do
+          VCR.use_cassette "movies/hardsubs" do
+            hardsubs = client.movie_hardsubs(832)
+            hardsubs["res-240p"].should_not be_empty
+            hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/832/1/832_en_240p.mp4'
+          end
+        end
+      end
     end
 
     describe "Series" do

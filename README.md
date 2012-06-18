@@ -1,37 +1,37 @@
 
-client.list_movies
+client.movies.list
 client.movie(:id)
-  client.movie(:id).subtitles('en')
+  client.movie.subtitles({id => 5, subtitle => en})
   client.movie(:id).hardsubs
 
-client.list_series
+client.series.list
 client.series(:id)
-  client.series(:id).subtitles('en')
-  client.series(:id).hardsubs
-  client.series(:id).list_episodes
-  client.series(:id).episode(:id)
+  client.serie(:id).subtitles('en')
+  client.serie(:id).hardsubs
+  client.serie(:id).episodes
+  client.serie(:id).episode(:id)
 
-client.list_music_videos
+client.list_music_videos.list
 client.music_video(:id)
-  client.music_videos(:id).subtitles('en')
-  client.music_videos(:id).hardsubs
+  client.music_video(:id).subtitles('en')
+  client.music_video(:id).hardsubs
 
-client.list_newscasts
+client.newscasts.list
 client.newscast(:id)
   client.newscast(:id).subtitles('en')
   client.newscast(:id).hardsubs
   client.newscast(:id).newsclips
 
-client.list_newsclips
-client.newsclip(:id)
+client.newsclips.list
+client.newsclips(:id)
 
-client.list_artists
+client.artists.list
 client.artist(:id)
-  client.artist(:id).list_music_videos
+  client.artist(:id).music_videos.list
 
-client.list_featured
+client.featured.list
 
 # UGLLLLYYYYY
-client.list_coming_soon
+client.coming_soon.list
 client.coming_soon.list_movies
 client.coming_soon.list_series

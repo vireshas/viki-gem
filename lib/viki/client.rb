@@ -29,6 +29,14 @@ module Viki
       Movie.new(request("movies/#{id}", params))
     end
 
+    def movie_subtitles(id, lang)
+      request("movies/#{id}/subtitles/#{lang}")
+    end
+
+    def movie_hardsubs(id)
+      request("movies/#{id}/hardsubs")
+    end
+
     def series(id = nil, params={})
       params = id if id.is_a?(Hash)
 
