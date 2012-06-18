@@ -7,6 +7,7 @@ require 'viki/newscast'
 require 'viki/music_video'
 require 'viki/artist'
 require 'viki/coming_soon'
+require 'viki/feature_item'
 
 module Viki
   class Client

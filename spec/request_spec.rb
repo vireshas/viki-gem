@@ -417,6 +417,31 @@ describe "Viki" do
       end
     end
 
+    describe "/featured" do
+      it "returns a list of Viki::FeaturedItem objects" do
+        VCR.use_cassette "featured" do
+          features = client.featured
+          features.each do |f|
+            f.should be_instance_of(Viki::FeatureItem)
+          end
+        end
+      end
+
+      it "should return a list of Viki::FeaturedItem objects for the given origin_country" do
+        VCR.use_cassette "featred/origin_country" do
+          features = client.featured({ :origin_country => 'ko' })
+          features.each do |f|
+            f.origin_country.should == 'ko'
+          end
+        end
+      end
+
+      it "should return a Viki::Error if platform params is not passed with watchable_in" do
+        VCR.use_cassette "featured/error" do
+          lambda { client.featured({ :platform => 'mobile' }) }.should raise_error(Viki::Error)
+        end
+      end
+    end
 
     describe "Coming Soon" do
 
