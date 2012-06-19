@@ -222,8 +222,8 @@ describe "Viki" do
 
       describe "/newscasts/id" do
 
-        it "should return a Viki::Newscast object" do
-          VCR.use_cassette "newscast/show", :record => :new_episodes do
+        it "returns a Viki::Newscast object" do
+          VCR.use_cassette "newscast/show" do
             newscast = client.newscast(1659)
 
             newscast.id.should == 1659
@@ -232,6 +232,21 @@ describe "Viki" do
             newscast.uri.should_not be_empty
             newscast.image.should_not be_empty
             newscast.newsclips.should_not be_empty
+          end
+        end
+      end
+
+      describe "/newscasts/id/newsclips" do
+
+        it "returns a list of Viki::Newsclips for the specified Newscast" do
+          VCR.use_cassette "newscast/list_newsclip" do
+
+            newscasts = client.newscast_newsclips(1659)
+
+            newscasts.length.should == 25
+            newscasts.each do |n|
+              n.should be_instance_of(Viki::Newsclip)
+            end
           end
         end
       end
@@ -264,6 +279,27 @@ describe "Viki" do
             newsclip.uri.should_not be_empty
             newsclip.image.should_not be_empty
             newsclip.newscast.should_not be_empty
+          end
+        end
+      end
+
+      describe "/newsclips/:id/subtitles/:lang" do
+        it "should return a subtitle JSON string" do
+          VCR.use_cassette "newsclip/subtitles" do
+
+            subtitles = client.newsclip_subtitles(64488, 'en')
+            subtitles["language_code"].should == "en"
+            subtitles["subtitles"].should_not be_empty
+          end
+        end
+      end
+
+      describe "/news_clip/:id/hardsubs" do
+        it "should return a list of video qualities with links to hardsubbed videos" do
+          VCR.use_cassette "newsclip/hardsubs" do
+            hardsubs = client.newsclip_hardsubs(70988)
+            hardsubs["res-240p"].should_not be_empty
+            hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/70988/1/70988_en_240p.mp4'
           end
         end
       end
@@ -322,7 +358,7 @@ describe "Viki" do
     #none available yet
     #describe "/music_video/:id/hardsubs" do
     #  it "should return a list of video qualities with links to hardsubbed videos" do
-    #    VCR.use_cassette "movies/hardsubs" do
+    #    VCR.use_cassette "music_video/hardsubs" do
     #      hardsubs = client.music_video_hardsubs(64135)
     #      hardsubs["res-240p"].should_not be_empty
     #      hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4'

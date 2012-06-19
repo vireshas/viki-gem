@@ -27,12 +27,14 @@ client.music_video(id, params)
 
 client.newscasts(params)
 client.newscast(id, params)
-  client.newscast_subtitles(id, lang) !!
-  client.newscast_hardsubs(id, lang)  !!
-  client.newscast_newsclips(id) !!
+client.newscast_newsclips(id)
+
 
 client.newsclips
 client.newsclip(id)
+  client.newsclip_subtitles(id, lang)
+  client.newsclip_hardsubs(id, lang)
+
 
 client.artists(params)
 client.artist(id, params)

@@ -11,6 +11,14 @@ module Viki
       def newsclip(id, params = {})
         Viki::Newsclip.new(request("newsclips/#{id}", params))
       end
+
+      def newsclip_subtitles(id, lang)
+        request("newsclips/#{id}/subtitles/#{lang}")
+      end
+
+      def newsclip_hardsubs(id)
+        request("newsclips/#{id}/hardsubs")
+      end
     end
   end
 end

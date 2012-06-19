@@ -11,6 +11,13 @@ module Viki
       def newscast(id, params = { })
         Viki::Newscast.new(request("newscasts/#{id}", params))
       end
+
+      def newscast_newsclips(id, params = { })
+        response = request("newscasts/#{id}/newsclips", params)
+        newsclip_list = []
+        response["response"].each { |newsclip| newsclip_list << Viki::Newsclip.new(newsclip) }
+        newsclip_list
+      end
     end
   end
 end
