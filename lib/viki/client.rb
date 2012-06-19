@@ -1,4 +1,5 @@
 require 'httparty'
+require 'viki/api_object'
 require 'viki/request'
 require 'viki/movie'
 require 'viki/series'

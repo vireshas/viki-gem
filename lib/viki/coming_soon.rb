@@ -1,11 +1,5 @@
 module Viki
-  class ComingSoon
-    def initialize(json)
-      @json = json
-    end
+  class ComingSoon < APIObject
 
-    def method_missing(attr)
-      @json[attr.to_s]
-    end
   end
 end

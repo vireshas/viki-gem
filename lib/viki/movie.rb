@@ -1,11 +1,4 @@
 module Viki
-  class Movie
-    def initialize(json)
-      @json = json
-    end
-
-    def method_missing(attr)
-      @json[attr.to_s]
-    end
+  class Movie < APIObject
   end
 end

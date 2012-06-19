@@ -1,11 +1,5 @@
 module Viki
-  class Episode
-    def initialize(json)
-      @json = json
-    end
+  class Episode < APIObject
 
-    def method_missing(attr)
-      @json[attr.to_s]
-    end
   end
 end
