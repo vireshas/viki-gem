@@ -237,6 +237,38 @@ describe "Viki" do
       end
     end
 
+    describe "Newsclips" do
+
+      describe "/newsclips" do
+        let(:results) { client.newsclips(query_options) }
+        let(:type) { :newsclip }
+
+        it "should return a list of Viki::Newscast objects" do
+          VCR.use_cassette "newsclips/list" do
+            results.each do |newsclip|
+              newsclip.should be_instance_of(Viki::Newsclip)
+            end
+          end
+        end
+      end
+
+      describe "/newsclips/id" do
+
+        it "should return a Viki::Newsclip object" do
+          VCR.use_cassette "newsclip/show", :record => :new_episodes do
+            newsclip = client.newsclip(62542)
+
+            newsclip.id.should == 62542
+            newsclip.title.should == "Lindsay Lohan to Host SNL"
+            newsclip.description.should_not be_empty
+            newsclip.uri.should_not be_empty
+            newsclip.image.should_not be_empty
+            newsclip.newscast.should_not be_empty
+          end
+        end
+      end
+    end
+
     describe "MusicVideos" do
 
 

@@ -17,22 +17,25 @@ module Viki
         end
       end
 
-      def series_episodes(series_id)
-        response = request("series/#{series_id}/episodes")
+      def series_episodes(series_id, params = {})
+        response = request("series/#{series_id}/episodes", params)
         episode_list = []
         response["response"].each { |episode| episode_list << Episode.new(episode) }
         episode_list
       end
 
+      # code smell -> currently expects :series in *args
       def series_episode(episode_id, args = { })
         response = request("series/#{args[:series]}/episodes/#{episode_id}")
         Episode.new(response)
       end
 
+      # code smell -> currently expects :series and :lang in *args
       def series_episode_subtitles(episode_id, args = {})
         request("series/#{args[:series]}/episodes/#{episode_id}/subtitles/#{args[:lang]}")
       end
 
+      # code smell -> currently expects :series in *args
       def series_episode_hardsubs(episode_id, args={ })
         request("series/#{args[:series]}/episodes/#{episode_id}/hardsubs")
       end

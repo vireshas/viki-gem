@@ -8,6 +8,7 @@ require 'viki/music_video'
 require 'viki/artist'
 require 'viki/coming_soon'
 require 'viki/feature_item'
+require 'viki/newsclip'
 
 module Viki
   class Client
@@ -25,6 +26,7 @@ module Viki
     include Viki::Client::Movies
     include Viki::Client::Series
     include Viki::Client::Newscast
+    include Viki::Client::Newsclip
     include Viki::Client::MusicVideo
     include Viki::Client::Artist
     include Viki::Client::ComingSoon
