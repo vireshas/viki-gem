@@ -1,15 +1,6 @@
 require 'httparty'
 require 'viki/api_object'
 require 'viki/request'
-require 'viki/movie'
-require 'viki/series'
-require 'viki/episode'
-require 'viki/newscast'
-require 'viki/music_video'
-require 'viki/artist'
-require 'viki/coming_soon'
-require 'viki/feature_item'
-require 'viki/newsclip'
 
 module Viki
   class Client
@@ -24,14 +15,56 @@ module Viki
     attr_reader :access_token
 
     include Viki::Request
-    include Viki::Client::Movies
-    include Viki::Client::Series
-    include Viki::Client::Newscast
-    include Viki::Client::Newsclip
-    include Viki::Client::MusicVideo
-    include Viki::Client::Artist
-    include Viki::Client::ComingSoon
-    include Viki::Client::Featured
+
+    def get
+      host = "http://www.viki.com/api/v3/"
+      path = ""
+      params = { access_token: self.access_token }
+
+      #puts @calls
+      @calls.each do |c|
+        path += "#{c.keys[0]}/"
+        next if c.values.empty?
+
+        if c.values[0].length == 1
+          if c.values[0][0].is_a?(Hash)
+            params.merge!(c.values[0][0])
+          else
+            path += "#{c.values[0][0]}/"
+          end
+
+        elsif c.values[0].length == 2
+          path += "#{c.values[0][0]}/"
+          params.merge!(c.values[0][1])
+        end
+
+      end
+      response = HTTParty.get(host + path.chop + ".json", :query => params)
+      puts response.header
+      APIObject.new(response.body)
+    end
+
+    private
+
+    def method_missing(name, *args, &block)
+      @calls ||= []
+      @calls.push({ name => args })
+      self
+    end
+
 
   end
 end
+
+#pure json
+#api object
+#list of api objects
+
+
+#response.count
+#=> 43
+#response.next
+#=> <APIObject>
+#response.content
+#=> <Hash>
+# b = response.content

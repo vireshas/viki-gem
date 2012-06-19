@@ -9,9 +9,16 @@ Here are a full list of functions available.
 
 ```
 client.movies(params)
-client.movie(id, params)
-  client.movie_subtitles(id, lang)
-  client.movie_hardsubs(id)
+client.movies(id, params)
+  client.movie(id).subtitles(lang)
+  client.movie(id).hardsubs
+
+client.movies
+client.movies({genre => 2})
+client.movies(23)
+client.movies(23, params => {language => 'ko'})
+client.movies.(23).subtitles('en')
+client.movies(23).hardsub
 
 client.series(params)
 client.series(id, params)

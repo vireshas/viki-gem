@@ -1,189 +1,381 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: get
     uri: http://viki.com/api/v3/movies/832/hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
+      string: ''
     headers: {}
-
-  response: 
-    status: 
+  response:
+    status:
       code: 301
       message: Moved Permanently
-    headers: 
-      Server: 
+    headers:
+      Server:
       - nginx
-      Date: 
+      Date:
       - Mon, 18 Jun 2012 03:38:47 GMT
-      Content-Type: 
+      Content-Type:
       - text/plain
-      Connection: 
+      Connection:
       - keep-alive
-      Location: 
+      Location:
       - http://www.viki.com/api/v3/movies/832/hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
-      X-Rack-Cache: 
+      X-Rack-Cache:
       - miss
-      Content-Length: 
-      - "9"
-      X-Varnish: 
-      - "1274539214"
-      Age: 
-      - "0"
-      Via: 
+      Content-Length:
+      - '9'
+      X-Varnish:
+      - '1274539214'
+      Age:
+      - '0'
+      Via:
       - 1.1 varnish
-    body: 
+    body:
       encoding: US-ASCII
-      string: "moved to "
+      string: ! 'moved to '
     http_version: 
   recorded_at: Mon, 18 Jun 2012 03:38:48 GMT
-- request: 
+- request:
     method: get
     uri: http://www.viki.com/api/v3/movies/832/hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
+      string: ''
     headers: {}
-
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Server: 
+    headers:
+      Server:
       - nginx
-      Date: 
+      Date:
       - Mon, 18 Jun 2012 03:38:48 GMT
-      Content-Type: 
+      Content-Type:
       - application/json; charset=utf-8
-      Connection: 
+      Connection:
       - keep-alive
-      X-Ua-Compatible: 
+      X-Ua-Compatible:
       - IE=Edge,chrome=1
-      Etag: 
-      - "\"ef15595afa5cac6384c4a67b1df0026f\""
-      Cache-Control: 
+      Etag:
+      - ! '"ef15595afa5cac6384c4a67b1df0026f"'
+      Cache-Control:
       - max-age=0, private, must-revalidate
-      Set-Cookie: 
-      - facebook_data=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      Set-Cookie:
+      - facebook_data=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - is_admin=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - pm_unread_count=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - pm_unread_count=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - qc=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - show_subber_player=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - show_subber_player=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - user_id=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - user_preferences=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - user_preferences=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - username=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      X-Request-Id: 
+      X-Request-Id:
       - 23c10ce3f5a5c3ad0a50fa93e48a7d0f
-      X-Runtime: 
-      - "0.048134"
-      X-Rack-Cache: 
+      X-Runtime:
+      - '0.048134'
+      X-Rack-Cache:
       - miss
-      Content-Length: 
-      - "136"
-      X-Varnish: 
-      - "1444095541"
-      Age: 
-      - "0"
-      Via: 
+      Content-Length:
+      - '136'
+      X-Varnish:
+      - '1444095541'
+      Age:
+      - '0'
+      Via:
       - 1.1 varnish
-    body: 
+    body:
       encoding: US-ASCII
-      string: "{\"res-240p\":{\"en\":\"http://video1.viki.com/hardsubs/832/1/832_en_240p.mp4\",\"fr\":\"http://video1.viki.com/hardsubs/832/1/832_fr_240p.mp4\"}}"
+      string: ! '{"res-240p":{"en":"http://video1.viki.com/hardsubs/832/1/832_en_240p.mp4","fr":"http://video1.viki.com/hardsubs/832/1/832_fr_240p.mp4"}}'
     http_version: 
   recorded_at: Mon, 18 Jun 2012 03:38:48 GMT
-- request: 
+- request:
     method: get
     uri: http://viki.com/api/v3/movies/64135/hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
+      string: ''
     headers: {}
-
-  response: 
-    status: 
+  response:
+    status:
       code: 301
       message: Moved Permanently
-    headers: 
-      Server: 
+    headers:
+      Server:
       - nginx
-      Date: 
+      Date:
       - Mon, 18 Jun 2012 07:23:55 GMT
-      Content-Type: 
+      Content-Type:
       - text/plain
-      Connection: 
+      Connection:
       - keep-alive
-      Location: 
+      Location:
       - http://www.viki.com/api/v3/movies/64135/hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
-      X-Rack-Cache: 
+      X-Rack-Cache:
       - miss
-      Content-Length: 
-      - "9"
-      X-Varnish: 
-      - "158254305"
-      Age: 
-      - "0"
-      Via: 
+      Content-Length:
+      - '9'
+      X-Varnish:
+      - '158254305'
+      Age:
+      - '0'
+      Via:
       - 1.1 varnish
-    body: 
+    body:
       encoding: US-ASCII
-      string: "moved to "
+      string: ! 'moved to '
     http_version: 
   recorded_at: Mon, 18 Jun 2012 07:23:55 GMT
-- request: 
+- request:
     method: get
     uri: http://www.viki.com/api/v3/movies/64135/hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
-    body: 
+    body:
       encoding: US-ASCII
-      string: ""
+      string: ''
     headers: {}
-
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Server: 
+    headers:
+      Server:
       - nginx
-      Date: 
+      Date:
       - Mon, 18 Jun 2012 07:23:55 GMT
-      Content-Type: 
+      Content-Type:
       - application/json; charset=utf-8
-      Connection: 
+      Connection:
       - keep-alive
-      X-Ua-Compatible: 
+      X-Ua-Compatible:
       - IE=Edge,chrome=1
-      Etag: 
-      - "\"49a3e64c94520582c87fd5550d3c5e87\""
-      Cache-Control: 
+      Etag:
+      - ! '"49a3e64c94520582c87fd5550d3c5e87"'
+      Cache-Control:
       - max-age=0, private, must-revalidate
-      Set-Cookie: 
-      - facebook_data=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      Set-Cookie:
+      - facebook_data=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - is_admin=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - pm_unread_count=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - pm_unread_count=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - qc=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - show_subber_player=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - show_subber_player=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - user_id=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      - user_preferences=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
+      - user_preferences=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00
+        GMT
       - username=; domain=.viki.com; path=/; expires=Thu, 01-Jan-1970 00:00:00 GMT
-      X-Request-Id: 
+      X-Request-Id:
       - 238e3ebd1cbe303be8577b8d9f6dbc15
-      X-Runtime: 
-      - "0.051757"
-      X-Rack-Cache: 
+      X-Runtime:
+      - '0.051757'
+      X-Rack-Cache:
       - miss
-      Content-Length: 
-      - "144"
-      X-Varnish: 
-      - "1033709616"
-      Age: 
-      - "0"
-      Via: 
+      Content-Length:
+      - '144'
+      X-Varnish:
+      - '1033709616'
+      Age:
+      - '0'
+      Via:
       - 1.1 varnish
-    body: 
+    body:
       encoding: US-ASCII
-      string: "{\"res-240p\":{\"fr\":\"http://video1.viki.com/hardsubs/64135/1/64135_fr_240p.mp4\",\"en\":\"http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4\"}}"
+      string: ! '{"res-240p":{"fr":"http://video1.viki.com/hardsubs/64135/1/64135_fr_240p.mp4","en":"http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4"}}'
     http_version: 
   recorded_at: Mon, 18 Jun 2012 07:23:56 GMT
-recorded_with: VCR 2.2.1
+- request:
+    method: get
+    uri: http://www.viki.com/api/v3//.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 19 Jun 2012 09:19:48 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Connection:
+      - keep-alive
+      X-Request-Id:
+      - be824166cbe9cab06dada779037cf026
+      X-Runtime:
+      - '0.003024'
+      X-Rack-Cache:
+      - miss
+      Content-Length:
+      - '4226'
+      X-Varnish:
+      - '1460885749'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICA8dGl0bGU+CiAgICBO
+        b3QgRm91bmQgLSBWaWtpCiAgPC90aXRsZT4KCiAgPG1ldGEgY2hhcnNldD0n
+        dXRmLTgnLz4KICA8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNv
+        bnRlbnQ9InRleHQvaHRtbDsgY2hhcnNldD11dGYtOCIvPgogIDxtZXRhIGh0
+        dHAtZXF1aXY9IkNvbnRlbnQtTGFuZ3VhZ2UiIGNvbnRlbnQ9ImVuIi8+CiAg
+        PG1ldGEgY29udGVudD0iIiBuYW1lPSJkZXNjcmlwdGlvbiIvPgoKICA8bGlu
+        ayBocmVmPSJodHRwOi8vYTIudmlraWFzc2V0cy5jb20vMTMzNDU5NDczOS9p
+        bWFnZXMvZmF2aWNvbi5pY28iIHJlbD0ic2hvcnRjdXQgaWNvbiIKICAgICAg
+        ICB0eXBlPSJpbWFnZS92bmQubWljcm9zb2Z0Lmljb24iLz4KICA8c3R5bGU+
+        CiAgICBodG1sIHsKICAgICAgZm9udC1mYW1pbHk6ICdQcm94aW1hUmVndWxh
+        cicsICdBcmlhbCBOYXJyb3cnLCAnQXJpYWwnLCAnSGVsdmV0aWNhJywgc2Fu
+        cy1zZXJpZjsKICAgICAgZm9udC1zaXplOiAxNXB4OwogICAgICBjb2xvcjog
+        IzVFNTc0NzsKICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICB3aWR0aDogMTAw
+        JTsKICAgICAgZmxvYXQ6IGxlZnQ7CgogICAgfQoKICAgIGJvZHkgewogICAg
+        ICBiYWNrZ3JvdW5kLWNvbG9yOiAjQjJENkUwOwogICAgICBwYWRkaW5nOiAw
+        OwogICAgICBtYXJnaW46IDA7CiAgICAgIGhlaWdodDogMTAwJTsKICAgIH0K
+        CiAgICB1bCwgbGkgewogICAgICBsaXN0LXN0eWxlOiBub25lOwogICAgICBt
+        YXJnaW46IDA7CiAgICAgIHBhZGRpbmc6IDA7CiAgICB9CgogICAgLmNsZWFy
+        Zml4OmFmdGVyIHsKICAgICAgY29udGVudDogIi4iOwogICAgICBkaXNwbGF5
+        OiBibG9jazsKICAgICAgaGVpZ2h0OiAwOwogICAgICBjbGVhcjogYm90aDsK
+        ICAgICAgdmlzaWJpbGl0eTogaGlkZGVuOwogICAgfQoKICAgIC5jbGVhcmZp
+        eCB7CiAgICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsKICAgIH0KCiAgICAu
+        Y2xlYXJmaXggewogICAgICBkaXNwbGF5OiBibG9jazsKICAgIH0KCiAgICAu
+        Y2xlYXIgewogICAgICBjbGVhcjogYm90aDsKICAgIH0KCiAgICAuaGlkZS10
+        ZXh0IHsKICAgICAgdGV4dC1pbmRlbnQ6IDEwMCU7CiAgICAgIHdoaXRlLXNw
+        YWNlOiBub3dyYXA7CiAgICAgIG92ZXJmbG93OiBoaWRkZW47CiAgICB9Cgog
+        ICAgLmltZyB7CiAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnaHR0cDov
+        L2EwLnZpa2lhc3NldHMuY29tLzEzMzQ1OTQ3NDAvaW1hZ2VzL3Nwcml0ZXMv
+        YXNzZXRzLnBuZycpOwogICAgfQoKICAgIC5sb2dvIHsKICAgICAgYmFja2dy
+        b3VuZC1wb3NpdGlvbjogMHB4IDBweDsKICAgICAgd2lkdGg6IDc2cHg7CiAg
+        ICAgIGhlaWdodDogNjJweDsKICAgICAgbWFyZ2luOiAwIDAgMCAzMHB4Owog
+        ICAgfQoKICAgIC5sb2dvIGEgewogICAgICBkaXNwbGF5OiBibG9jazsKICAg
+        ICAgd2lkdGg6IDc2cHg7CiAgICAgIGhlaWdodDogNjFweDsKCiAgICB9Cgog
+        ICAgaDEgewogICAgICBjb2xvcjogIzI0QTdDRjsKICAgIH0KCiAgICAuYm9k
+        eS1jb250YWluZXIgewogICAgICB3aWR0aDogOTc2cHg7CiAgICAgIGhlaWdo
+        dDogMTAwJTsKICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgIHBhZGRpbmct
+        dG9wOiAyMHB4OwogICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkNGOUY4Owog
+        ICAgICBkaXNwbGF5OiBibG9jazsKICAgICAgLW1vei1ib3gtc2hhZG93OiAj
+        ODg5ZmEzIDAgMCAxMHB4IDNweDsKICAgICAgLXdlYmtpdC1ib3gtc2hhZG93
+        OiAjODg5RkEzIDAgMCAxMHB4IDNweDsKICAgICAgLW8tYm94LXNoYWRvdzog
+        Izg4OWZhMyAwIDAgMTBweCAzcHg7CiAgICAgIGJveC1zaGFkb3c6ICM4ODlG
+        QTMgMCAwIDEwcHggM3B4OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzIHsK
+        ICAgICAgd2lkdGg6IDQ3MHB4OwogICAgICBtYXJnaW46IDYwcHggYXV0bzsK
+        ICAgICAgcGFkZGluZy1sZWZ0OiAyMzBweDsKICAgICAgYm9yZGVyOiBzb2xp
+        ZCAxcHggIzAwMDsKICAgICAgLW1vei1ib3JkZXItcmFkaXVzOiA1cHg7CiAg
+        ICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4OwogICAgICBib3JkZXIt
+        cmFkaXVzOiA1cHg7CiAgICAgIC1tb3otYm94LXNoYWRvdzogM3B4IDNweCA1
+        cHggI2FhYTsKICAgICAgLXdlYmtpdC1ib3gtc2hhZG93OiAzcHggM3B4IDVw
+        eCAjYWFhOwogICAgICBib3gtc2hhZG93OiAzcHggM3B4IDVweCAjYWFhOwog
+        ICAgICBiYWNrZ3JvdW5kOiB1cmwoJ2h0dHA6Ly9hMS52aWtpYXNzZXRzLmNv
+        bS8xMzM0NTk0NzQwL2ltYWdlcy93YXRjaGRvZy5qcGcnKSAwIDAgbm8tcmVw
+        ZWF0OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzIGgxIHsKICAgICAgbWFy
+        Z2luOiAwcHggMCAxNXB4IDA7CiAgICB9CgogICAgLnNlcnZlci1lcnJvcnMu
+        bm90LWZvdW5kIHsKICAgICAgYmFja2dyb3VuZDogdXJsKCdodHRwOi8vYTIu
+        dmlraWFzc2V0cy5jb20vMTMzNDU5NDc0MC9pbWFnZXMvZTQwNC5wbmcnKSAx
+        NXB4IDEwcHggbm8tcmVwZWF0OwogICAgICB3aWR0aDogNDkwcHg7CiAgIAog
+        ICAgICBwYWRkaW5nLWxlZnQ6IDI0MHB4OwogICAgICBtYXJnaW4tYm90dG9t
+        OiAzMHB4OwogICAgfQoKICAgIC5zZXJ2ZXItZXJyb3JzLm5vdC1mb3VuZCAu
+        Y29weSB7CiAgICAgIHBhZGRpbmctdG9wOiAyMHB4OwogICAgICBmbG9hdDog
+        bGVmdDsKICAgICAgd2lkdGg6IDQ3NXB4OwogICAgfQoKICAgIC5zZXJ2ZXIt
+        ZXJyb3JzLm5vdC1mb3VuZCAuY29weSBoMiB7CiAgICAgIG1hcmdpbi1ib3R0
+        b206IDIwcHg7CiAgICAgIGhlaWdodDogMzFweDsKICAgICAgb3ZlcmZsb3c6
+        IGhpZGRlbjsKICAgIH0KCiAgICAuc2VydmVyLWVycm9ycy5ub3QtZm91bmQg
+        LmNvcHkgLmNvbHVtbiB7CiAgICAgIHdpZHRoOiA0MDBweDsKICAgICAgZmxv
+        YXQ6IGxlZnQ7CiAgICAgIG1hcmdpbi1sZWZ0OiAyMHB4OwogICAgfQoKICAg
+        IC5zZXJ2ZXItZXJyb3JzLm5vdC1mb3VuZCAuY29weSAuY29sdW1uIGg1IHsK
+        ICAgICAgbWFyZ2luLWJvdHRvbTogNXB4OwogICAgfQoKICAgIC5zZXJ2ZXIt
+        ZXJyb3JzLm5vdC1mb3VuZCAuY29weSAuY29sdW1uIHVsIHsKICAgICAgbWFy
+        Z2luOiA1cHggMDsKICAgIH0KCiAgICAuc2VydmVyLWVycm9ycy5ub3QtZm91
+        bmQgLmNvcHkgLmNvbHVtbiB1bCBsaSB7CiAgICAgIHBhZGRpbmctbGVmdDog
+        NnB4OwogICAgICBiYWNrZ3JvdW5kOiB1cmwoJ2h0dHA6Ly9hMy52aWtpYXNz
+        ZXRzLmNvbS8xMzM0NTk0NzQwL2ltYWdlcy9zbWFsbC1ibHVlLXRyaWFuZ2xl
+        LnBuZycpIDAgNTAlIG5vLXJlcGVhdDsKICAgIH0KICA8L3N0eWxlPgo8L2hl
+        YWQ+Cjxib2R5IGNsYXNzPSJwdWJsaWNfZXJyb3JzIj4KCjxkaXYgY2xhc3M9
+        ImJvZHktY29udGFpbmVyIj4KICA8ZGl2IGNsYXNzPSJpbWcgbG9nbyI+CiAg
+        ICA8aDE+CiAgICAgIDxhIGhyZWY9Ii8iIGNsYXNzPSJoaWRlLXRleHQiPlZp
+        a2k8L2E+CiAgICA8L2gxPgogIDwvZGl2PgoKICA8ZGl2IGNsYXNzPSJzZXJ2
+        ZXItZXJyb3JzIG5vdC1mb3VuZCBjbGVhcmZpeCI+CiAgICA8ZGl2IGNsYXNz
+        PSJjb3B5IGNsZWFyZml4Ij4KICAgICAgPGgxPlRoZSB2aWRlbyB5b3UncmUg
+        bG9va2luZyBmb3IgaXMgbm8gbG9uZ2VyIGF2YWlsYWJsZS4gOig8L2gxPgoK
+        ICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIj4KICAgICAgICA8cD4gSGVyZSBh
+        cmUgc29tZSB0eXBpY2FsIHJlYXNvbnMgd2h5OjwvcD4KICAgICAgICA8dWw+
+        CiAgICAgICAgICA8bGk+VGhlIGNoYW5uZWwgbWFuYWdlciBoYXMgcmVtb3Zl
+        ZCBpdDwvbGk+CiAgICAgICAgICA8bGk+VGhlIGxpY2Vuc2luZyBwZXJpb2Qg
+        Zm9yIHRoaXMgdmlkZW8gaGFzIGV4cGlyZWQ8L2xpPgogICAgICAgICAgPGxp
+        PlRoZSB2aWRlbyB3YXMgcmVtb3ZlZCBkdWUgdG8gdmlvbGF0aW9uIG9mIHRo
+        ZcKgVmlraSBUZXJtcyBvZiBVc2U8L2xpPgogICAgICAgICAgPGxpPlRoZSBt
+        YW5hZ2VyIG9mIHRoZSBjaGFubmVsIHRob3VnaHQgaXQgZGlkbid0IGJlbG9u
+        ZyBoZXJlPC9saT4KICAgICAgICAgIDxsaT5JdCB3YXMgc3BhbTwvbGk+CiAg
+        ICAgICAgPC91bD4KICAgICAgICA8cD4gVGhlcmUgYXJlIGVuZGxlc3MgaG91
+        cnMgb2YgPGEgaHJlZj0iaHR0cDovL3d3dy52aWtpLmNvbSI+ZnVuIG9uIFZp
+        a2k8L2E+LCBzbyB3ZSBob3BlIHlvdSBmaW5kIGFub3RoZXIgdmlkZW8gdG8g
+        a2VlcCB5b3UgZW50ZXJ0YWluZWQhIjwvcD4KICAgICAgPC9kaXY+CgogICAg
+        PC9kaXY+CiAgPC9kaXY+CgoKPC9kaXY+CjwvYm9keT4KPC9odG1sPgo=
+    http_version: 
+  recorded_at: Tue, 19 Jun 2012 09:19:49 GMT
+- request:
+    method: get
+    uri: http://www.viki.com/api/v3/movies/64135hardsubs.json?access_token=1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 19 Jun 2012 09:45:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - public, max-age=3600
+      Expires:
+      - Tue, 19 Jun 2012 10:45:28 GMT
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Etag:
+      - ! '"a419294e813f4559cb2ad95ecabf85dc"'
+      X-Request-Id:
+      - c91c87281e98558d918d198af5d263a0
+      X-Runtime:
+      - '0.134702'
+      X-Content-Digest:
+      - b17c7c0d9309b54c47f45c09973d539fd52585db
+      X-Rack-Cache:
+      - miss, ignore, store
+      Content-Length:
+      - '1773'
+      X-Varnish:
+      - '1288620768'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+    body:
+      encoding: US-ASCII
+      string: ! '{"id":64135,"channel_id":756,"title":"Jenny, Juno","description":"Jenny
+        and Juno are in love. The 15-year-olds, however, let a romantic moment go
+        too far, and Jenny becomes pregnant. Intent on keeping the baby instead of
+        putting it up for adoption, the young lovers try to keep their parents from
+        finding out. But, of course, when the parents do find out, all hell breaks
+        loose. Can the teens prove to their parents that they are responsible enough
+        to take care of a baby?","created_at":"November 09, 2009 04:14","uri":"http://www.viki.com/api/v3/movies/64135.json","web_uri":"http://www.viki.com/channels/756","genres":[],"origin_country":"Korea","image":"http://m2.viki.com/aHR0cDovL2MxLnZpa2lhc3NldHMuY29tL3VwbG9hZHMvY2hhbm5lbC90aHVtYm5haWwvNzU2L2IzNjBkNjdiZmE4NzQyYjM1OGI5NGZlMmU5MTQ0OGM4OWI0OTViNGYuanBn","subtitles":{"en":99,"fr":99,"es":99,"pl":98,"tr":60,"ro":35},"formats":{"flash_embed":"http://a3.vikiassets.com/1340098323/swfs/vikiplayer.swf?media_id=64135&host=www.viki.com&auto_play=true&source=api_v3&language_codes=en&partner=13","m3u8":"http://wpc.354a.edgecastcdn.net/00354A/videos/hlsv/756-JennyJuno/10814_Jenny-Juno/ios.m3u8","res-150p":"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/756-JennyJuno/10814_Jenny-Juno_mp4cell_150.mp4","res-240p":"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/756-JennyJuno/10814_Jenny-Juno_240p.mp4","res-270p":"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/756-JennyJuno/10814_Jenny-Juno_270p.mp4","res-360p":"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/756-JennyJuno/10814_Jenny-Juno_360p.mp4","res-480p":"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/756-JennyJuno/10814_Jenny-Juno_480p.mp4","res-720p":"http://wpc.354a.edgecastcdn.net/00354A/videos/encoded/1/64135_720p.mp4"}}'
+    http_version: 
+  recorded_at: Tue, 19 Jun 2012 09:45:29 GMT
+recorded_with: VCR 2.2.2
