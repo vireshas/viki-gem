@@ -102,6 +102,15 @@ describe "Viki" do
           end
         end
       end
+
+      describe "movies.next" do
+        it "should return the next page of results on API Object" do
+          response = client.movies.get
+          results = response.next
+          results.count.should > 1
+          results.content.should_not be_empty
+        end
+      end
     end
 
   end
