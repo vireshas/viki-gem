@@ -1,6 +1,7 @@
 require 'httparty'
 require 'viki/api_object'
 require 'viki/request'
+require 'multi_json'
 
 module Viki
   class Client
@@ -21,7 +22,6 @@ module Viki
       path = ""
       params = { access_token: self.access_token }
 
-      #puts @calls
       @calls.each do |c|
         path += "#{c.keys[0]}/"
         next if c.values.empty?
@@ -40,31 +40,24 @@ module Viki
 
       end
       response = HTTParty.get(host + path.chop + ".json", :query => params)
-      puts response.header
+      capture(response)
       APIObject.new(response.body)
     end
 
-    private
+    def capture(response)
+      if response.header.code != "200"
+        response_hash = MultiJson.load(response.body)
+        raise Viki::Error, response_hash["message"]
+      end
+    end
 
+
+    private
     def method_missing(name, *args, &block)
       @calls ||= []
       @calls.push({ name => args })
       self
     end
 
-
   end
 end
-
-#pure json
-#api object
-#list of api objects
-
-
-#response.count
-#=> 43
-#response.next
-#=> <APIObject>
-#response.content
-#=> <Hash>
-# b = response.content

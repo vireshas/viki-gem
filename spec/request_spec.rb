@@ -38,8 +38,8 @@ describe "Viki" do
       describe "/movies" do
         it "should return a list Viki::Movie objects" do
           VCR.use_cassette "movies/list", :record => :new_episodes do
-            results.each do |movie|
-              movie.should be_instance_of(Viki::APIObject)
+            results.content.each do |movie|
+              movie.should be_instance_of(Hash)
             end
           end
         end
@@ -86,7 +86,8 @@ describe "Viki" do
       describe "/movies/:id/subtitles/:lang" do
         it "should return a subtitle JSON string" do
           VCR.use_cassette "movies/subtitles", :record => :new_episodes do
-            subtitles = client.movies(21713).subtitles('en').get
+            response = client.movies(21713).subtitles('en').get
+            subtitles = response.content
             subtitles["language_code"].should == "en"
             subtitles["subtitles"].should_not be_empty
           end
@@ -96,7 +97,8 @@ describe "Viki" do
       describe "movies/:id/hardsubs" do
         it "should return a list of video qualities with links to hardsubbed videos" do
           VCR.use_cassette "movies/hardsubs", :record => :new_episodes do
-            hardsubs = client.movies(64135).hardsubs.get
+            response = client.movies(64135).hardsubs.get
+            hardsubs = response.content
             hardsubs["res-240p"].should_not be_empty
             hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4'
           end

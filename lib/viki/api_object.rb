@@ -4,9 +4,8 @@ module Viki
   class APIObject
     def initialize(json)
       hash = MultiJson.load(json)
-      puts "===> hash: #{(hash).inspect}"
-      @content = hash["response"]
-      @count = hash["count"] # may return nil
+      hash["response"] ? @content = hash["response"] : @content = hash
+      @count = hash["count"] if hash["count"]
       @next_url = hash["pagination"]["next"] if hash["pagination"]
       @previous_url = hash["pagination"]["previous"] if hash["pagination"]
     end
@@ -20,9 +19,5 @@ module Viki
     def prev
       @previous_url
     end
-
-    #def method_missing(attr)
-    #  @json[attr.to_s]
-    #end
   end
 end
