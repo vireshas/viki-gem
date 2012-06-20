@@ -18,44 +18,24 @@ module Viki
     include Viki::Request
 
     def get
-      host = "http://www.viki.com/api/v3/"
-      path = ""
-      params = { access_token: self.access_token }
-
-      @calls.each do |c|
-        path += "#{c.keys[0]}/"
-        next if c.values.empty?
-
-        if c.values[0].length == 1
-          if c.values[0][0].is_a?(Hash)
-            params.merge!(c.values[0][0])
-          else
-            path += "#{c.values[0][0]}/"
-          end
-
-        elsif c.values[0].length == 2
-          path += "#{c.values[0][0]}/"
-          params.merge!(c.values[0][1])
-        end
-
-      end
-      response = HTTParty.get(host + path.chop + ".json", :query => params)
-      capture(response)
-      APIObject.new(response.body)
+      request(@call_chain)
     end
-
-    def capture(response)
-      if response.header.code != "200"
-        response_hash = MultiJson.load(response.body)
-        raise Viki::Error, response_hash["message"]
-      end
-    end
-
 
     private
     def method_missing(name, *args, &block)
-      @calls ||= []
-      @calls.push({ name => args })
+      @call_chain ||= []
+      curr_call = { name: name }
+
+      first_arg, second_arg = args[0], args[1]
+
+      if args.length == 1
+        first_arg.is_a?(Hash) ? curr_call.merge!({ params: first_arg }) : curr_call.merge!({ resource: first_arg })
+      elsif args.length == 2
+        curr_call.merge!({ resource: first_arg })
+        curr_call.merge!({ params: second_arg })
+      end
+
+      @call_chain.push(curr_call)
       self
     end
 

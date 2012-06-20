@@ -57,10 +57,8 @@ describe "Viki" do
       describe "/movies/:id" do
         it "should return a Viki::Movie object" do
           VCR.use_cassette "movie_show", :record => :new_episodes do
-            response = client.movies(70436).get
+              response = client.movies(70436).get
             movie = response.content
-            puts "===> response: #{(response).inspect}"
-            puts "===> response.content: #{(response.content).inspect}"
 
             #overtesting
             movie["id"].should == 70436
@@ -71,7 +69,7 @@ describe "Viki" do
             movie["origin_country"].should_not be_empty
             movie["image"].should_not be_empty
             movie["formats"].should_not be_empty
-            movie["subtitles"].should be_empty #is actually empty in this call
+            movie["subtitles"].should_not be_empty
             movie["genres"].should_not be_empty
           end
         end

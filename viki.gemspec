@@ -5,9 +5,9 @@ require "viki/version"
 Gem::Specification.new do |s|
   s.name        = "viki"
   s.version     = Viki::VERSION
-  s.authors     = ["Joost van Amersfoort", "Cedric Chin"]
-  s.email       = ["joost@viki.com", "cedric@viki.com"]
-  s.homepage    = "http://www.dev.viki.com"
+  s.authors     = ["Joost van Amersfoort", "Cedric Chin", "Tommi Lew"]
+  s.email       = ["engineering@viki.com"]
+  s.homepage    = "http://dev.viki.com"
   s.summary     = %q{TODO: Write a gem summary}
   s.description = %q{TODO: Write a gem description}
 
