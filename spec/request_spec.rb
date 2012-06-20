@@ -37,7 +37,7 @@ describe "Viki" do
 
       describe "/movies" do
         it "should return a list Viki::Movie objects" do
-          VCR.use_cassette "movies/list", :record => :new_episodes do
+          VCR.use_cassette "movies/list" do
             results.content.each do |movie|
               movie.should be_instance_of(Hash)
             end
@@ -45,7 +45,7 @@ describe "Viki" do
         end
 
         it "should raise an error when platform parameter is given without watchable_in" do
-          VCR.use_cassette "movie/platform_filter_error", :record => :new_episodes do
+          VCR.use_cassette "movie/platform_filter_error" do
             query_options.merge!({ :platform => 'mobile' })
             lambda { results }.should raise_error(Viki::Error)
           end
@@ -56,8 +56,8 @@ describe "Viki" do
 
       describe "/movies/:id" do
         it "should return a Viki::Movie object" do
-          VCR.use_cassette "movie_show", :record => :new_episodes do
-              response = client.movies(70436).get
+          VCR.use_cassette "movie_show" do
+            response = client.movies(70436).get
             movie = response.content
 
             #overtesting
@@ -75,7 +75,7 @@ describe "Viki" do
         end
 
         it "should return a Viki::Error object when resource not found" do
-          VCR.use_cassette "movie_error", :record => :new_episodes do
+          VCR.use_cassette "movie_error" do
             lambda { client.movies(50).get }.should raise_error(Viki::Error, "The resource couldn't be found")
           end
         end
@@ -83,8 +83,9 @@ describe "Viki" do
 
       describe "/movies/:id/subtitles/:lang" do
         it "should return a subtitle JSON string" do
-          VCR.use_cassette "movies/subtitles", :record => :new_episodes do
+          VCR.use_cassette "movies/subtitles" do
             response = client.movies(21713).subtitles('en').get
+            response.count.should == 1
             subtitles = response.content
             subtitles["language_code"].should == "en"
             subtitles["subtitles"].should_not be_empty
@@ -94,11 +95,32 @@ describe "Viki" do
 
       describe "movies/:id/hardsubs" do
         it "should return a list of video qualities with links to hardsubbed videos" do
-          VCR.use_cassette "movies/hardsubs", :record => :new_episodes do
+          VCR.use_cassette "movies/hardsubs" do
             response = client.movies(64135).hardsubs.get
+            response.count.should == 1
             hardsubs = response.content
             hardsubs["res-240p"].should_not be_empty
             hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4'
+          end
+        end
+      end
+
+      describe "APIObject pagination" do
+        it "returns an APIObject for APIObject containing movies when it has a next page" do
+          VCR.use_cassette "APIObject/pagination" do
+            response = client.movies.get
+            result = response.next
+            result.count.should > 1
+            result.content.should_not be_empty
+            result.should be_instance_of(Viki::APIObject)
+          end
+        end
+
+        it "returns nil if there is movies listing has no next page" do
+          VCR.use_cassette "APIObject/pagination_fail" do
+            response = client.movies({ page: 6 }).get
+            result = response.next
+            result.should be_nil
           end
         end
       end

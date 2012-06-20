@@ -33,7 +33,13 @@ module Viki
 
       response = HTTParty.get(HOST + path.chop + ".json", :query => params)
       capture response
-      APIObject.new(response.body)
+      APIObject.new(response.body, self.access_token)
+    end
+
+    def direct_request(url, access_token)
+      response = HTTParty.get(url, :query => {access_token: access_token})
+      capture response
+      APIObject.new(response.body, access_token)
     end
 
     def capture(response)
