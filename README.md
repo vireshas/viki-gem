@@ -22,9 +22,9 @@ client.series(id, params)
   client.series(id).episodes(id).hardsubs
 
 client.music_videos(params)
-client.music_video(id, params)
-  client.music_video(id).subtitles(lang)
-  client.music_video(id).hardsubs * implementation waiting on valid examples
+client.music_videos(id, params)
+  client.music_videos(id).subtitles(lang)
+  client.music_videos(id).hardsubs * implementation waiting on valid examples
 
 client.newscasts(params)
 client.newscasts(id, params)
