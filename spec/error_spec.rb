@@ -8,5 +8,5 @@ describe Viki::Error do
   it { should respond_to(:status) }
   it { should respond_to(:message) }
 
-  it { subject.to_s.should == "404: Resource 'blah' not found."}
+  it { subject.to_s.should == "Resource 'blah' not found."}
 end
