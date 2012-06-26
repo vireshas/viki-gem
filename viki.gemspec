@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Joost van Amersfoort", "Cedric Chin", "Tommi Lew"]
   s.email       = ["engineering@viki.com"]
   s.homepage    = "http://dev.viki.com"
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = "A thin wrapper around the Viki V3 API"
+  s.description = "Viki-gem is an official wrapper gem for the Viki V3 API."
 
   s.rubyforge_project = "viki"
 
