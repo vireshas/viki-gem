@@ -20,7 +20,9 @@ module Viki
     include Viki::Request
 
     def get
-      request(@call_chain)
+      result = request(@call_chain)
+      @call_chain = []
+      result
     end
 
     def reset_access_token
