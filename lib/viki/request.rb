@@ -1,10 +1,11 @@
 require 'uri'
 require 'httparty'
 require 'multi_json'
-
+require 'viki/utilities'
 
 module Viki
   module Request
+    include Viki::Utilities
 
     private
     HOST = "http://www.viki.com/api/v3/"
@@ -38,12 +39,6 @@ module Viki
       APIObject.new(response.body, self.access_token)
     end
 
-    def direct_request(url, access_token)
-      response = HTTParty.get(url, :query => {access_token: access_token})
-      capture response
-      APIObject.new(response.body, access_token)
-    end
-
     private
 
     def build_url(call_chain)
@@ -57,13 +52,6 @@ module Viki
       end
 
       return path, params
-    end
-
-    def capture(response)
-      if response.header.code != "200"
-        response_hash = MultiJson.load(response.body)
-        raise Viki::Error.new(response.header.code, response_hash["message"]) if response.header.code != "200"
-      end
     end
   end
 end

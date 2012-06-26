@@ -1,9 +1,9 @@
 require 'viki/version'
 require 'viki/client'
 require 'viki/error'
+require 'viki/utilities'
 
-# Adapted from the Ruby Twitter gem.
-# @see https://github.com/jnunemaker/twitter
+# Adapted from the Grackle Twitter gem.
 module Viki
 
   # Alias for viki::Client.new
