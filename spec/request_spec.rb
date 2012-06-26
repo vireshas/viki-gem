@@ -18,7 +18,7 @@ describe "Viki" do
     it "should return an error when the client_secret or client_id is incorrect" do
       VCR.use_cassette "auth_error" do
         lambda { Viki.new('12345', '54321') }.should raise_error(Viki::Error,
-                                                                 "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.")
+                                                                'Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.')
       end
     end
   end
@@ -47,7 +47,8 @@ describe "Viki" do
         it "should raise an error when platform parameter is given without watchable_in" do
           VCR.use_cassette "movie/platform_filter_error" do
             query_options.merge!({ :platform => 'mobile' })
-            lambda { results }.should raise_error(Viki::Error)
+            lambda { results }.should raise_error(Viki::Error,
+                                                  "Require watchable_in parameter when given platform parameter")
           end
         end
 
@@ -100,7 +101,6 @@ describe "Viki" do
             response.count.should == 1
             hardsubs = response.content
             hardsubs["res-240p"].should_not be_empty
-            hardsubs["res-240p"]["en"].should == 'http://video1.viki.com/hardsubs/64135/1/64135_en_240p.mp4'
           end
         end
       end

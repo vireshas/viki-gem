@@ -17,7 +17,7 @@ module Viki
       }
       response = HTTParty.post('http://viki.com/oauth/token', query: params)
       json = MultiJson.load(response.body)
-      raise Viki::Error, json["error_description"] if json["error"]
+      raise Viki::Error.new(response.header.code, json["error_description"]) if response.header.code != "200"
       json["access_token"]
     end
 
@@ -45,7 +45,7 @@ module Viki
     def capture(response)
       if response.header.code != "200"
         response_hash = MultiJson.load(response.body)
-        raise Viki::Error, response_hash["message"]
+        raise Viki::Error.new(response.header.code, response_hash["message"]) if response.header.code != "200"
       end
     end
   end
