@@ -22,6 +22,31 @@ module Viki
     end
 
     def request(call_chain)
+      path, params = build_url(call_chain)
+      request_url = HOST + path.chop + ".json"
+
+      response = HTTParty.get(request_url, :query => params)
+
+      if response.header.code == "401"
+        self.reset_access_token
+        params.merge!({ access_token: self.access_token })
+        response = HTTParty.get(request_url, :query => params)
+      end
+
+      capture response
+
+      APIObject.new(response.body, self.access_token)
+    end
+
+    def direct_request(url, access_token)
+      response = HTTParty.get(url, :query => {access_token: access_token})
+      capture response
+      APIObject.new(response.body, access_token)
+    end
+
+    private
+
+    def build_url(call_chain)
       path = ""
       params = { access_token: self.access_token }
 
@@ -31,21 +56,7 @@ module Viki
         params.merge!(c[:params]) if c.has_key?(:params)
       end
 
-      response = HTTParty.get(HOST + path.chop + ".json", :query => params)
-      
-      if response.header.code == "401"
-        self.reset_access_token
-        response = HTTParty.get(HOST + path.chop + ".json", :query => params.merge!({access_token: self.access_token}))
-      end
-
-      capture response
-      APIObject.new(response.body, self.access_token)
-    end
-
-    def direct_request(url, access_token)
-      response = HTTParty.get(url, :query => {access_token: access_token})
-      capture response
-      APIObject.new(response.body, access_token)
+      return path, params
     end
 
     def capture(response)
