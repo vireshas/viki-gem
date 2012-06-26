@@ -6,8 +6,8 @@ require 'multi_json'
 module Viki
   class Client
     Dir[File.expand_path('../client/*.rb', __FILE__)].each { |f| require f }
-    URL_NAMESPACES = %w('movies', 'series', 'episodes', 'music_videos', 'newscasts', 'newsclips',
-            'artists', 'featured', 'coming_soon', 'subtitles', 'hardsubs')
+    URL_NAMESPACES = [:movies, :series, :episodes, :music_videos, :newscasts, :newsclips,
+            :artists, :featured, :coming_soon, :subtitles, :hardsubs]
 
     def initialize(client_id, client_secret)
       @client_id = client_id
@@ -26,8 +26,7 @@ module Viki
     private
     def method_missing(name, *args, &block)
       @call_chain ||= []
-
-      raise Class::NoMethodError if not URL_NAMESPACES.include? name
+      raise NoMethodError if not URL_NAMESPACES.include? name
 
       curr_call = { name: name }
 
