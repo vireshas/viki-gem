@@ -18,7 +18,7 @@ describe "Viki" do
     it "should return an error when the client_secret or client_id is incorrect" do
       VCR.use_cassette "auth_error" do
         lambda { Viki.new('12345', '54321') }.should raise_error(Viki::Error,
-                                                                'Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.')
+                                                                 'Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.')
       end
     end
   end
@@ -122,6 +122,17 @@ describe "Viki" do
             result = response.next
             result.should be_nil
           end
+        end
+      end
+    end
+
+    describe "Renew Expired Access Token" do
+      it "should request a new access token when an endpoint returns 401 and client currently has an access_token" do
+        VCR.use_cassette "auth/expired_access_token" do
+          client.access_token.should_not be_empty
+          client.instance_variable_set(:@access_token, "rubbishaccesstoken")
+          response = client.movies.get
+          response.content.should_not be_empty
         end
       end
     end

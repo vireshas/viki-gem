@@ -32,6 +32,12 @@ module Viki
       end
 
       response = HTTParty.get(HOST + path.chop + ".json", :query => params)
+      
+      if response.header.code == "401"
+        self.reset_access_token
+        response = HTTParty.get(HOST + path.chop + ".json", :query => params.merge!({access_token: self.access_token}))
+      end
+
       capture response
       APIObject.new(response.body, self.access_token)
     end

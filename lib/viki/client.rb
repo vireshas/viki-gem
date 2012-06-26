@@ -23,6 +23,10 @@ module Viki
       request(@call_chain)
     end
 
+    def reset_access_token
+      @access_token = auth_request(@client_id, @client_secret)
+    end
+
     private
     def method_missing(name, *args, &block)
       @call_chain ||= []
