@@ -31,7 +31,7 @@ module Viki
     end
 
     private
-    def method_missing(name, *args, &block)
+    def method_missing(name, *args)
       @call_chain ||= []
       raise NoMethodError if not URL_NAMESPACES.include? name
 
