@@ -27,7 +27,7 @@ module Viki
     end
 
     def prev
-      @previous_url ? direct_request(@next_url) : nil
+      @previous_url ? direct_request(@previous_url) : nil
     end
 
     private

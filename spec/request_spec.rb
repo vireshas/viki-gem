@@ -11,7 +11,7 @@ describe "Viki" do
     it "should retrieve an access token when the Viki object is configured and initialized" do
       VCR.use_cassette "auth" do
         client = Viki.new(client_id, client_secret)
-        client.access_token.should == '1b080a6b3a94ed4503e04e252500ca87f6e7dc55061cec92b627ef1fbec44c70'
+        client.access_token.should == '7e5c411d19aaa60f9a5d18d7cf3c44ae9cf7e28d5ccee84e1a4b699cb7ab07fc'
       end
     end
 
@@ -137,5 +137,27 @@ describe "Viki" do
       end
     end
 
+    describe ".next" do
+      it "should invoke direct_request with a next_url" do
+        VCR.use_cassette("movies/list/pg2", :record => :new_episodes) do
+          movies = client.movies.get
+          next_url = movies.instance_variable_get(:@next_url)
+          movies.should_receive(:direct_request).with(next_url)
+          movies.next
+        end
+      end
+    end
+
+    describe ".prev" do
+      it "should invoke direct_request with previous_url" do
+        VCR.use_cassette("movies/list/pg2", :record => :new_episodes) do
+          movies_pg1 = client.movies.get
+          movies_pg2 = movies_pg1.next
+          previous_url = movies_pg2.instance_variable_get(:@previous_url)
+          movies_pg2.should_receive(:direct_request).with(previous_url)
+          movies_pg2.prev
+        end
+      end
+    end
   end
 end
