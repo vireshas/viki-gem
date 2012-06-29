@@ -7,7 +7,8 @@ module Viki
   class Client
     Dir[File.expand_path('../client/*.rb', __FILE__)].each { |f| require f }
     URL_NAMESPACES = [:movies, :series, :episodes, :music_videos, :newscasts, :newsclips,
-            :artists, :featured, :coming_soon, :subtitles, :hardsubs]
+            :artists, :featured, :coming_soon, :subtitles, :hardsubs, :genres, :countries,
+            :search, :languages]
 
     def initialize(client_id, client_secret)
       @client_id = client_id

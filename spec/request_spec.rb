@@ -159,5 +159,11 @@ describe "Viki" do
         end
       end
     end
+
+    describe ".method_missing" do
+      it "should raise NoMethodError if a method that is not on the whitelist is called" do
+        expect { client.does_not_exist }.should raise_error(NoMethodError)
+      end
+    end
   end
 end
