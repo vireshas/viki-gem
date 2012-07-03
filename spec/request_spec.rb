@@ -11,7 +11,7 @@ describe "Viki" do
     it "should retrieve an access token when the Viki object is configured and initialized" do
       VCR.use_cassette "auth" do
         client = Viki.new(client_id, client_secret)
-        client.access_token.should == '7e5c411d19aaa60f9a5d18d7cf3c44ae9cf7e28d5ccee84e1a4b699cb7ab07fc'
+        client.access_token.should_not be_nil
       end
     end
 
@@ -51,8 +51,6 @@ describe "Viki" do
                                                   "Require watchable_in parameter when given platform parameter")
           end
         end
-
-        #it_behaves_like "API with parameter filters"
       end
 
       describe "/movies/:id" do
@@ -160,9 +158,18 @@ describe "Viki" do
       end
     end
 
-    describe ".method_missing" do
+    describe "Errors" do
       it "should raise NoMethodError if a method that is not on the whitelist is called" do
         expect { client.does_not_exist }.should raise_error(NoMethodError)
+      end
+
+      it "should use the proper call chain after a failed request" do
+        VCR.use_cassette "movie_error" do
+          lambda { client.movies(50).get }.should raise_error(Viki::Error, "The resource couldn't be found")
+        end
+
+      results = client.movies.get
+      results.should be_instance_of(Viki::APIObject)
       end
     end
   end
