@@ -1,11 +1,12 @@
 # encoding: utf-8
 
 require 'spec_helper'
+require 'secrets'
 require 'filter_shared_examples_spec'
 
 describe "Viki" do
-  let(:client_id) { '4bd5edd4ba26ac2f3ad9d204dc6359ea8a3ebe2c95b6bc1a9195c0ce5c57d392' }
-  let(:client_secret) { 'f3b796a1eb6e06458a502a89171a494a9160775ed4f4e9e0008c638f7e7e7d38' }
+  let(:client_id) { CLIENT_ID }
+  let(:client_secret) { CLIENT_SECRET }
 
   describe "Auth" do
     it "should retrieve an access token when the Viki object is configured and initialized" do
