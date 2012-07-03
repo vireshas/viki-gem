@@ -1,8 +1,4 @@
-# encoding: utf-8
-
 require 'spec_helper'
-require 'secrets'
-require 'filter_shared_examples_spec'
 
 describe "Viki" do
   let(:client_id) { CLIENT_ID }
