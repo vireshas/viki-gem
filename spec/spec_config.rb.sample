@@ -1,0 +1,4 @@
+# Please get a client id and client secret, refer to readme file for more information.
+CLIENT_ID = "a_client_id"
+CLIENT_SECRET = "a_client_secret"
+

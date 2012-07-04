@@ -5,7 +5,7 @@ require 'rspec'
 require 'viki'
 require 'vcr'
 require 'webmock/rspec'
-require 'secrets.rb'
+require 'spec_config.rb'
 include WebMock::API
 include WebMock::Matchers
 

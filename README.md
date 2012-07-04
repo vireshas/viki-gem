@@ -96,3 +96,8 @@ Your ruby application
 	viki.newscasts.get					#without parameter filter
 	viki.newscasts(language: 'ko').get	#with parameter filter
 
+RSpec Testing
+----------
+To run the tests, create a spec_config.rb file from the sample file.
+
+Add your client id and client secret into the file.

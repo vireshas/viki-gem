@@ -7,4 +7,4 @@ pkg/*
 *.un~
 .idea/
 fixtures/
-spec/secrets.rb
+spec_config.rb
