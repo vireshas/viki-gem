@@ -121,6 +121,13 @@ describe "Viki" do
       end
     end
 
+    describe "when HTTP timeout" do
+      before { stub_request(:any, /www.viki.com/).to_return(:status => [408]) }
+      it "should handle timeout gracefully" do
+        expect { client.movies.get }.should raise_error(Viki::Error, "Timeout error")
+      end
+    end
+
     describe "Renew Expired Access Token" do
       it "should request a new access token when an endpoint returns 401 and client currently has an access_token" do
         VCR.use_cassette "auth/expired_access_token" do
