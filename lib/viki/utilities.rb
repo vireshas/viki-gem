@@ -1,5 +1,8 @@
 module Viki
   module Utilities
+    URL_NAMESPACES = [:movies, :series, :episodes, :music_videos, :newscasts, :newsclips,
+                      :artists, :featured, :coming_soon, :subtitles, :hardsubs, :genres, :countries,
+                      :search, :languages]
     private
 
     def capture(response)

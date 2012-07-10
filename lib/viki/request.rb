@@ -1,57 +1,51 @@
-require 'uri'
-require 'httparty'
-require 'multi_json'
-require 'viki/utilities'
-
 module Viki
-  module Request
-    include Viki::Utilities
+  class Request
+    def initialize(auth_data, name, *args)
+      @access_token = auth_data[:access_token]
+      @client_id = auth_data[:client_id]
+      @client_secret = auth_data[:client_secret]
 
-    private
-    HOST = "http://www.viki.com/api/v3/"
-
-    def auth_request(client_id, client_secret)
-      params = {
-        :grant_type => 'client_credentials',
-        :client_id => client_id,
-        :client_secret => client_secret
-      }
-      response = HTTParty.post('http://viki.com/oauth/token', query: params)
-      json = MultiJson.load(response.body)
-      raise Viki::Error.new(response.header.code, json["error_description"]) if response.header.code != "200"
-      json["access_token"]
+      build_call_chain(name, *args)
     end
 
-    def request(call_chain)
-      path, params = build_url(call_chain)
-      request_url = HOST + path.chop + ".json"
+    attr_reader :access_token
 
-      response = HTTParty.get(request_url, :query => params)
+    include Viki::Transport
 
-      if response.header.code == "401"
-        self.reset_access_token
-        params.merge!({ access_token: self.access_token })
-        response = HTTParty.get(request_url, :query => params)
-      end
+    def get
+      current_chain = @call_chain
+      @call_chain = []
+      request(current_chain)
+    end
 
-      capture response
-
-      APIObject.new(response.body, self.access_token)
+    def reset_access_token
+      @access_token = auth_request(@client_id, @client_secret)
     end
 
     private
+    def method_missing(name, *args)
+      build_call_chain(name, *args)
+      self
+    end
 
-    def build_url(call_chain)
-      path = ""
-      params = { access_token: self.access_token }
+    def build_call_chain(name, *args)
+      @call_chain ||= []
+      raise NoMethodError if not URL_NAMESPACES.include? name
 
-      call_chain.each do |c|
-        path += "#{c[:name]}/"
-        path += "#{c[:resource]}/" if c.has_key?(:resource)
-        params.merge!(c[:params]) if c.has_key?(:params)
+      curr_call = { name: name }
+
+      first_arg, second_arg = args[0], args[1]
+
+      if args.length == 1
+        first_arg.is_a?(Hash) ? curr_call.merge!({ params: first_arg }) : curr_call.merge!({ resource: first_arg })
+      elsif args.length == 2
+        curr_call.merge!({ resource: first_arg })
+        curr_call.merge!({ params: second_arg })
       end
 
-      return path, params
+      @call_chain.push(curr_call)
     end
+
   end
 end
+

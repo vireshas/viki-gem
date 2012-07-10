@@ -7,23 +7,30 @@ Installation
 ----------
 Manually `gem install viki` or add `gem 'viki'` to Gemfile
 
-How to use
-----------
-Add to your .rb
+Usage
+-----
+Add where necessary
 
 	require 'viki'
 
 Initialization
 
-	viki = Viki.new('your_client_id', 'your_client_secret')
+	client = Viki.new('your_client_id', 'your_client_secret')
 
+Client is a `Viki::Client` object. When you make a method call, for example `client.movies`, the client will return a `Viki::Request` object - which you will be using to make requests. You may chain methods on the request object. The actual call to the API will only be made when you call `.get` on the request object.
 
-Responses will be returned in a `Viki::APIObject`.
+	viki    = client.movies	#returns a Viki::Request object
+	results = viki.get		#hits the API and returns a Viki::APIObject
 
-For results that are paginated. You can use the `APIObject`'s `next` and `prev` methods to retrieve the next and previous 25 records respectively.
+APIObject Methods
+-----------------
+
+Responses will be returned in a `Viki::APIObject`. See below
+
+For results that are paginated, you may use the `APIObject`'s `next` and `prev` methods to retrieve the next and previous 25 records respectively.
 
 ```
-	viki.movies
+	viki   = client.movies      #returns a Viki::Request
 	movies = viki.get			#return records in a Viki::APIObject
 
 	movies.content				#content of the API call in JSON format
@@ -37,8 +44,9 @@ For results that are paginated. You can use the `APIObject`'s `next` and `prev` 
 Examples
 ----------
 * Results will always be returned in JSON format.
+* This gem simply converts Ruby methods to API endpoints. Each URL namespace is a method. This means that if there is a `/series/` url namespace, the gem's request object will have an equivalent `.series` method. See examples below for an illustration of this behaviour.
+* Refer to the [API V3 documentation](http://dev.viki.com/api "Viki API V3 Docs") for complete documentation for all Viki API endpoints.
 * All URL endpoints in the following examples should include an `access_token` parameter.
-* Refer to the [API V3 documentation](http://dev.viki.com/api "Viki API V3 Docs") for all endpoints.
 
 ### List Movies
 URL
@@ -51,8 +59,8 @@ URL
 
 Your ruby application
 
-	viki.movies.get				#without parameter filters
-	viki.movies(genre: 2).get 	#with parameter filters
+	client.movies.get				#without parameter filters
+	client.movies(genre: 2).get 	#with parameter filters
 
 ### Show Movie
 URL
@@ -61,7 +69,7 @@ URL
 
 Your ruby application
 
-	viki.movies(71459).get
+	client.movies(71459).get
 
 ### Subtitles
 URL
@@ -70,7 +78,7 @@ URL
 
 Your ruby application
 
-	viki.movies(71459).subtitles('en').get
+	client.movies(71459).subtitles('en').get
 
 ### Show Episode
 URL
@@ -79,7 +87,7 @@ URL
 
 Your ruby application
 
-	viki.series(6004).episodes(61168).get
+	client.series(6004).episodes(61168).get
 
 ### List Newscasts
 
@@ -93,11 +101,11 @@ URL
 
 Your ruby application
 
-	viki.newscasts.get					#without parameter filter
-	viki.newscasts(language: 'ko').get	#with parameter filter
+	client.newscasts.get					#without parameter filter
+	client.newscasts(language: 'ko').get	#with parameter filter
 
 RSpec Testing
-----------
+-------------
 To run the tests, create a spec_config.rb file from the sample file.
 
-Add your client id and client secret into the file.
+Add your client id and client secret into this file.

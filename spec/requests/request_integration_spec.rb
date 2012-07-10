@@ -128,7 +128,7 @@ describe "Viki" do
       end
     end
 
-    describe "Renew Expired Access Token" do
+    describe "Access token renewal" do
       it "should request a new access token when an endpoint returns 401 and client currently has an access_token" do
         VCR.use_cassette "auth/expired_access_token" do
           client.access_token.should_not be_empty
