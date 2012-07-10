@@ -22,6 +22,16 @@ module Viki
       @access_token = auth_request(@client_id, @client_secret)
     end
 
+    def url
+      path, params = build_url(@call_chain)
+      params.delete(:access_token)
+
+      url_params = ""
+      params.keys.each { |key| url_params += "#{key}=#{params[key]}" }
+
+      "#{path.chop}?#{url_params}"
+    end
+
     private
     def method_missing(name, *args)
       build_call_chain(name, *args)

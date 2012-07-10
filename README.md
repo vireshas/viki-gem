@@ -22,8 +22,8 @@ Client is a `Viki::Client` object. When you make a method call, for example `cli
 	viki    = client.movies	#returns a Viki::Request object
 	results = viki.get		#hits the API and returns a Viki::APIObject
 
-APIObject Methods
------------------
+Viki::APIObject Methods
+-----------------------
 
 Responses will be returned in a `Viki::APIObject`. See below
 
@@ -40,6 +40,17 @@ For results that are paginated, you may use the `APIObject`'s `next` and `prev` 
 	movies 	= movies2.prev		#prev 25 records
 ```
 
+Viki::Request Methods
+---------------------
+
+Requests are made with the `Viki::Request` object.
+
+```
+	viki = client.movies		#returns a Viki::Request
+
+	viki.get					#hits the API
+	viki.url					#returns the url
+```
 
 Examples
 ----------
