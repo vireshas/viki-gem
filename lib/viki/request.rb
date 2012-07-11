@@ -27,9 +27,9 @@ module Viki
       params.delete(:access_token)
 
       url_params = ""
-      params.keys.each { |key| url_params += "#{key}=#{params[key]}" }
+      params.keys.each { |key| url_params += "#{key}=#{params[key]}&" }
 
-      "#{path.chop}?#{url_params}"
+      "#{path.chop}?#{url_params.chop}"
     end
 
     private
