@@ -30,6 +30,14 @@ module Viki
       @previous_url ? direct_request(@previous_url) : nil
     end
 
+    def next?
+      !@next_url.nil?
+    end
+
+    def prev?
+      !@previous_url.nil?
+    end
+
     private
 
     def direct_request(url)

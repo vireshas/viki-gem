@@ -141,7 +141,7 @@ describe "Viki" do
 
     describe ".next" do
       it "should invoke direct_request with a next_url" do
-        VCR.use_cassette("movies/list/pg2", :record => :new_episodes) do
+        VCR.use_cassette("movies/list/pg2") do
           movies = client.movies.get
           next_url = movies.instance_variable_get(:@next_url)
           movies.should_receive(:direct_request).with(next_url)
@@ -152,12 +152,46 @@ describe "Viki" do
 
     describe ".prev" do
       it "should invoke direct_request with previous_url" do
-        VCR.use_cassette("movies/list/pg2", :record => :new_episodes) do
+        VCR.use_cassette("movies/list/pg2") do
           movies_pg1 = client.movies.get
           movies_pg2 = movies_pg1.next
           previous_url = movies_pg2.instance_variable_get(:@previous_url)
           movies_pg2.should_receive(:direct_request).with(previous_url)
           movies_pg2.prev
+        end
+      end
+    end
+
+    describe ".next?" do
+      it "should return true when url is available" do
+        VCR.use_cassette("movies/list/pg2") do
+          movies = client.movies.get
+          movies.next?.should == true
+        end
+      end
+
+      it "should return false when not next url not available" do
+        VCR.use_cassette("movies/list/pg2") do
+          response = client.movies.get
+          response.instance_variable_set(:@next_url, nil)
+          response.next?.should == false
+        end
+      end
+    end
+
+    describe ".prev?" do
+      it "should return false when not next url not available" do
+        VCR.use_cassette("movies/list/pg2") do
+          response = client.movies.get
+          response.instance_variable_set(:@previous_url, "www.google.com")
+          response.prev?.should == true
+        end
+      end
+
+      it "should return true when url is available" do
+        VCR.use_cassette("movies/list/pg2") do
+          movies = client.movies.get
+          movies.prev?.should == false
         end
       end
     end
@@ -172,8 +206,8 @@ describe "Viki" do
           lambda { client.movies(50).get }.should raise_error(Viki::Error, "The resource couldn't be found")
         end
 
-      results = client.movies.get
-      results.should be_instance_of(Viki::APIObject)
+        results = client.movies.get
+        results.should be_instance_of(Viki::APIObject)
       end
     end
   end
