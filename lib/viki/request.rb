@@ -14,7 +14,6 @@ module Viki
 
     def get
       current_chain = @call_chain
-      @call_chain = []
       request(current_chain)
     end
 

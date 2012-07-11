@@ -23,6 +23,13 @@ describe Viki::Request do
       req.get
     end
 
+    it "should not clear the call_chain after .get is called" do
+      req = client.movies(1234, { genre: 2 })
+      req.should_receive(:request)
+      req.get
+      req.instance_variable_get(:@call_chain).should_not == []
+    end
+
     it "should raise NoMethodError error if part of the call chain is not part of the URL_NAMESPACES list" do
       expect { client.methodwrong.subtitles('en') }.to raise_error(NoMethodError)
     end
@@ -33,6 +40,5 @@ describe Viki::Request do
       req = client.movies(1234, { genre: 2, per_page: 3 })
       req.url.should == "movies/1234?genre=2&per_page=3"
     end
-
   end
 end
