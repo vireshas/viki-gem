@@ -152,7 +152,7 @@ describe "Viki" do
 
     describe ".prev" do
       it "should invoke direct_request with previous_url" do
-        VCR.use_cassette("movies/list/pg2") do
+        VCR.use_cassette("movies/list/pg3") do
           movies_pg1 = client.movies.get
           movies_pg2 = movies_pg1.next
           previous_url = movies_pg2.instance_variable_get(:@previous_url)
