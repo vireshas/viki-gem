@@ -39,6 +39,9 @@ describe Viki::Request do
     it "should return the right url for the method call" do
       req = client.movies(1234, { genre: 2, per_page: 3 })
       req.url.should == "movies/1234?genre=2&per_page=3"
+
+      req = client.series(1234)
+      req.url.should == "series/1234"
     end
   end
 end

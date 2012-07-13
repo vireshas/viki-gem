@@ -28,7 +28,7 @@ module Viki
       url_params = ""
       params.keys.each { |key| url_params += "#{key}=#{params[key]}&" }
 
-      "#{path.chop}?#{url_params.chop}"
+      url_params.empty? ? path.chop : "#{path.chop}?#{url_params.chop}"
     end
 
     private
