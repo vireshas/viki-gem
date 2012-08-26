@@ -8,3 +8,4 @@ pkg/*
 .idea/
 fixtures/
 spec_config.rb
+bundler_stubs/

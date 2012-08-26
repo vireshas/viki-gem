@@ -40,14 +40,6 @@ describe "Viki" do
             end
           end
         end
-
-        it "should raise an error when platform parameter is given without watchable_in" do
-          VCR.use_cassette "movie/platform_filter_error" do
-            query_options.merge!({ :platform => 'mobile' })
-            lambda { results }.should raise_error(Viki::Error,
-                                                  "Require watchable_in parameter when given platform parameter")
-          end
-        end
       end
 
       describe "/movies/:id" do
@@ -93,9 +85,13 @@ describe "Viki" do
         it "should return a list of video qualities with links to hardsubbed videos" do
           VCR.use_cassette "movies/hardsubs" do
             response = client.movies(64135).hardsubs.get
-            response.count.should == 1
+            response.count.should_not == 1
             hardsubs = response.content
-            hardsubs["res-240p"].should_not be_empty
+            hardsubs.each do |h|
+              h["language_code"].should_not be_empty
+              h["resolution"].should_not be_empty
+              h["url"].should_not be_empty
+            end
           end
         end
       end
