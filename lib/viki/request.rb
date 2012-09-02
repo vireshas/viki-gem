@@ -4,6 +4,7 @@ module Viki
       @access_token = auth_data[:access_token]
       @client_id = auth_data[:client_id]
       @client_secret = auth_data[:client_secret]
+      @host = auth_data[:host] 
 
       build_call_chain(name, *args)
     end
@@ -14,11 +15,11 @@ module Viki
 
     def get
       current_chain = @call_chain
-      request(current_chain)
+      request(current_chain, @host)
     end
 
     def reset_access_token
-      @access_token = auth_request(@client_id, @client_secret)
+      @access_token = auth_request(@client_id, @client_secret, @host)
     end
 
     def url

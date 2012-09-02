@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Viki::Request do
+  DEFAULT_HOST = "http://www.viki.com"
+
   before do
     Viki::Client.any_instance.stub(:auth_request)
   end
@@ -13,13 +15,13 @@ describe Viki::Request do
     it "should perform a request to the right url given a call chain" do
       req = client.movies(1234).subtitles('en')
       req.should_receive(:request).with([{ :name => :movies, :resource => 1234 },
-                                             { :name => :subtitles, :resource => "en" }])
+                                             { :name => :subtitles, :resource => "en" }], DEFAULT_HOST)
       req.get
     end
 
     it "should perform a request with the right params given a call chain" do
       req = client.movies(1234, { genre: 2 })
-      req.should_receive(:request).with([{ :name => :movies, :resource => 1234, :params => { genre: 2 } }])
+      req.should_receive(:request).with([{ :name => :movies, :resource => 1234, :params => { genre: 2 } }], DEFAULT_HOST)
       req.get
     end
 

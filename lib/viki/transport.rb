@@ -8,23 +8,23 @@ module Viki
     include Viki::Utilities
 
     private
-    HOST = "http://www.viki.com/api/v3/"
 
-    def auth_request(client_id, client_secret)
+    def auth_request(client_id, client_secret, host)
+      endpoint = host + '/oauth/token'
       params = {
         :grant_type => 'client_credentials',
         :client_id => client_id,
         :client_secret => client_secret
       }
-      response = HTTParty.post('http://viki.com/oauth/token', query: params)
+      response = HTTParty.post(endpoint, query: params)
       json = MultiJson.load(response.body)
       raise Viki::Error.new(response.header.code, json["error_description"]) if response.header.code != "200"
       json["access_token"]
     end
 
-    def request(call_chain)
+    def request(call_chain, host)
       path, params = build_url(call_chain)
-      request_url = HOST + path.chop + ".json"
+      request_url = host + "/api/v3/" + path.chop + ".json"
 
       response = HTTParty.get(request_url, :query => params)
 

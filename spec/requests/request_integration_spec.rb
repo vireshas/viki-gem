@@ -118,7 +118,7 @@ describe "Viki" do
     end
 
     describe "when HTTP timeout" do
-      before { stub_request(:any, /www.viki.com/).to_return(:status => [408]) }
+      before { stub_request(:get, /www.viki.com/).to_return(:status => [408]) }
       it "should handle timeout gracefully" do
         expect { client.movies.get }.should raise_error(Viki::Error, "Timeout error")
       end
