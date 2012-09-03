@@ -206,5 +206,31 @@ describe "Viki" do
         results.should be_instance_of(Viki::APIObject)
       end
     end
+
+    describe "Custom Domain" do
+      let(:vikiping_client_id) { "4bd5edd4ba26ac2f3ad9d204dc6359ea8a3ebe2c95b6bc1a9195c0ce5c57d392"} 
+      let(:vikiping_client_secret) { "f3b796a1eb6e06458a502a89171a494a9160775ed4f4e9e0008c638f7e7e7d38" }
+      let(:custom_client) do
+        VCR.use_cassette "custom_auth" do  
+          Viki.new(vikiping_client_id, vikiping_client_secret, 'http://www.vikiping.com')
+        end
+      end
+
+      context "when initialized with a domain parameter" do
+        it "should contact the custom domain" do
+          stub_request(:get, /www.vikiping.com/).to_return(:body => '{"success": "custom"}')
+          results = custom_client.movies.get
+          results.content['success'].should == 'custom'
+        end
+      end
+
+      context "when not initialized with a domain parameter" do
+        it "should contact the default domain" do
+          stub_request(:get, /www.viki.com/).to_return(:body => '{"success": "default"}')
+          results = client.movies.get
+          results.content['success'].should == 'default'
+        end
+      end
+    end
   end
 end
