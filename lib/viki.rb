@@ -9,8 +9,8 @@ module Viki
   # Alias for viki::Client.new
   #
   # @return {viki::Client})
-  def self.new(client_id, client_secret)
-    Viki::Client.new(client_id, client_secret)
+  def self.new(client_id, client_secret, host = nil)
+    Viki::Client.new(client_id, client_secret, host)
   end
 
 end
