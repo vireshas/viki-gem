@@ -1,5 +1,5 @@
 require 'uri'
-require 'httparty'
+require 'oauth2'
 require 'multi_json'
 require 'viki/utilities'
 
@@ -19,10 +19,7 @@ module Viki
 
       puts " requesting:: #{endpoint} with params:: #{params.inspect}"
 
-      response = HTTParty.post(endpoint, query: params)
-      json = MultiJson.load(response.body)
-      raise Viki::Error.new(response.header.code, json["error_description"]) if response.header.code != "200"
-      json["access_token"]
+      Oauth::Client.new(params[:client_id], params[:client_secret], :site => host).client_credentials.get_token.token
     end
 
     def request(call_chain, host)
