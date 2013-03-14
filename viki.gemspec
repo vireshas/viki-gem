@@ -24,6 +24,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "webmock", "~> 1.8.7"
   s.add_development_dependency "excon", "~> 0.9.6"
   s.add_runtime_dependency     "httparty", "~> 0.8.3"
-  s.add_runtime_dependency     "multi_json", "~> 1.3.6"
+  s.add_runtime_dependency     "multi_json", "1.6.1"
 
 end
