@@ -16,6 +16,9 @@ module Viki
         :client_id => client_id,
         :client_secret => client_secret
       }
+
+      puts " requesting:: #{endpoint} with params:: #{params.inspect}"
+
       response = HTTParty.post(endpoint, query: params)
       json = MultiJson.load(response.body)
       raise Viki::Error.new(response.header.code, json["error_description"]) if response.header.code != "200"

@@ -7,7 +7,7 @@ require 'multi_json'
 module Viki
   class Client
     include Viki::Transport
-    HOST = "http://www.viki.com"
+    HOST = "http://viki.com"
 
     def initialize(client_id, client_secret, host = nil)
       @host = host || HOST
